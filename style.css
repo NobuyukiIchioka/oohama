@@ -1,0 +1,84 @@
+/* Webフォント読み込み */
+@font-face {
+	font-family: PixelMplus10-Regular;
+	src: url('PixelMplus/PixelMplus12-Bold.ttf') format("truetype");
+}
+.font{
+  font-size: 45px;
+  font-weight: bold;
+  font-family: PixelMplus10-Regular;
+  color: white;
+}
+
+/* CSSスタート */
+  
+  body {
+    position: relative;
+    /* width: 1920px;
+    height: 1080px; */
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 1ページ目 */
+  .body1{
+    background-color: black;
+  }
+
+  .wrapper1 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title p:first-child{
+  text-align: center;
+}
+
+  .btn{
+    width: 90px;
+    height: 90px;
+  }
+
+  /* 2ページ目 */
+  .wrapper2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper2 video{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .wrapper3{
+    /* width: 1920px;
+    height: 1080px; */
+    height: 100vh;
+    width: 100vh;
+  }
+
+  
+
+
+
+
+
+
+/* headerの固定CSS */
+  header{
+    color: rgb(40, 145, 231);
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    z-index: 10;
+  }
+
+
+
+
+
+
+
