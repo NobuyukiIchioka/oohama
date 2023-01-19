@@ -8,26 +8,48 @@
       <link rel="stylesheet" href="reset.css" >
       <link rel="stylesheet" href="style.css" >
   </head>
-  <body class="body1">
+  <body>
     <header>
-      <ul>
-        <li></li><a href="./index.html">HOME</a></li>
-        <li><a href="./index2.html">nextページ</a></li>
-      </ul>
+      <div class="header-btn"><audio controls loop src="./music/BGM.mp3"  class="music"></audio></div>
     </header>
     
-    <main class="wrapper1">
-      <div class="title">
-        <p><img src="./img/bt1.png" alt="button" class="btn"></p>
-        <p class="font">大浜鍼灸整骨院</p>
+    <main>
+      <!-- 1st -->
+      <div class="wrapper1 body">
+        <div class="title">
+          <p><img src="./img/bt1.png" alt="button" class="btn"></p>
+          <p class="font">START</p>
+        </div>
+      </div>
+
+      <!-- 2nd -->
+      <div class="wrapper2 body">
+        <div><video controls src="./movie.MOV" class="movie"></video></div>
+      </div>
+
+      <!-- 3rd -->
+      <div class="wrapper3">
+        <div class="box">
+            <img src="./img/bt2.png" alt="button" class="btn">
+            <span class="font">GAME PLAY</span>
+        </div>
+      </div>
+
+      <!-- 4th -->
+      <div class="wrapper4">
+        <iframe 
+          width="100%" 
+          height="100%" 
+          src="https://elate-up.com/hfcontent/test5/">
+        </iframe>
       </div>
     </main>
 
+      
+    
 
-
-  <!-- JavaScript -->
-    <!-- JavaScriptの読み込む予備 -->
-    <!-- <script src="index.js"></script> -->
+    <!-- JavaScript操作 -->
+    <script src="index.js"></script>
 
   </body>
 </html>

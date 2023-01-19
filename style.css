@@ -7,69 +7,160 @@
   font-size: 45px;
   font-weight: bold;
   font-family: PixelMplus10-Regular;
-  color: white;
 }
 
 /* CSSスタート */
-  
   body {
     position: relative;
-    /* width: 1920px;
-    height: 1080px; */
     width: 100%;
     height: 100%;
   }
 
-  /* 1ページ目 */
-  .body1{
+  .body{
     background-color: black;
   }
 
+  .header-btn{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 15 !important;
+  }
+
+  /* .music{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: index 30;
+  } */
+
+
+  /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper1 {
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
 
-.title p:first-child{
-  text-align: center;
-}
+    /* display: none; */
+  }
+
+  .title p:first-child{
+    text-align: center;
+  }
+
+  .title p{
+    color: white;
+  }
 
   .btn{
     width: 90px;
     height: 90px;
   }
 
-  /* 2ページ目 */
+  .wrapper1.close{
+    display: none;
+  }
+
+
+  /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper2{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+
+    /* display: none; */
+  }
+
+  .wrapper2 video{
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .wrapper2.close{
+    display: none;
+  }
+  
+
+  /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper3 {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 252, 252, 0.822);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    /* opacity: 0; */
+    /* display: none; */
+  }
+
+  .box{
+    padding: 35px;
+    border: solid ;
+    border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .wrapper2 video{
+  .wrapper3.close{
+    display: none;
+  }
+
+
+  /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper4{
+    text-align: center;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    display: none;
+  }
+
+  .wrapper4 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-  }
-  
-  .wrapper3{
-    /* width: 1920px;
-    height: 1080px; */
-    height: 100vh;
-    width: 100vh;
+    height: 3650px;
   }
 
-  
+  @media screen and (max-width:767px){
+    .wrapper4 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1900px;
+    }
+  }
 
-
-
+  .wrapper4.open{
+    display: block;
+  }
 
 
 
 /* headerの固定CSS */
   header{
     color: rgb(40, 145, 231);
+    font-size: 1.5rem;  
     position: fixed;
     top: 20px;
     left: 30px;
