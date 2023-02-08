@@ -21,29 +21,40 @@ title.addEventListener( 'click', function () {
 
 /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 // 動画再生終了後
-// ③wra2消える
-// ④音楽スタート
-const wra2 = document.querySelector('.wrapper2');
-const music = document.querySelector('.music');
+// ③wra3が出現
+// ④wra3コンテナが出現
+// ⑤ボックスが出現
+const wra3 = document.querySelector('.wrapper3');
+const wra3_con = document.querySelector('.wra3_container');
+const box = document.querySelector('.box');
 
-// ③、④
+// ③、④、⑤
 movie.addEventListener( 'ended', () => {
-    wra2.classList.add('close');
-    music.play();
+    wra3.classList.add('open');
+    wra3_con.classList.add('open');
+    box.classList.add('open');
   } )
 
 
 /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-// ボタンを押すと
-// ⑤wra3が消える
-// ⑥wra4が出現
-const wra3 = document.querySelector('.wrapper3');
-const box = document.querySelector('.box');
+// wra3コンテナを押すと
+// ⑥wra2が消える
+// ⑦wra3が消える
+// ⑦wra3コンテナが消える
+// ⑧ボックスが消える
+// ⑨音楽スタート
+// ⑩wra4が出現
+const wra2 = document.querySelector('.wrapper2');
+const music = document.querySelector('.music');
 const wra4 = document.querySelector('.wrapper4');
 
-// ⑤、⑥
-box.addEventListener( 'click', function(){
+// ⑥、⑦、⑧、⑨、⑩
+wra3_con.addEventListener( 'click', function(){
+    wra2.classList.add('close');
     wra3.classList.add('close');
+    wra3_con.classList.remove('open');
+    box.classList.remove('open');
+    music.play();
     wra4.classList.add('open');
     } )
 

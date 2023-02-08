@@ -9,7 +9,21 @@
   font-family: PixelMplus10-Regular;
 }
 
-/* CSSスタート */
+/* headerの固定CSS */
+header{
+  font-size: 1.5rem;  
+  position: fixed;
+  bottom: 7px;
+  right: 14px;
+  z-index: 35;
+}
+
+.music{
+  width: 290px;
+  height: 32px;
+}
+
+/* mainスタート */
   body {
     position: relative;
     width: 100%;
@@ -20,20 +34,25 @@
     background-color: black;
   }
 
-  .header-btn{
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 15 !important;
+   /* 点滅 */
+   .blinking{
+    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
+      -moz-animation:blink 1.5s ease-in-out infinite alternate;
+      animation:blink 3s ease-in-out infinite alternate;
   }
-
-  /* .music{
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: index 30;
-  } */
-
+  @-webkit-keyframes blink{
+      0% {opacity:0;}
+      100% {opacity:1;}
+  }
+  @-moz-keyframes blink{
+      0% {opacity:0;}
+      100% {opacity:1;}
+  }
+  @keyframes blink{
+      0% {opacity:0;}
+      100% {opacity:1;}
+  }
+  
 
   /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper1 {
@@ -46,21 +65,31 @@
     top: 0;
     left: 0;
     z-index: 30;
-
-    /* display: none; */
   }
 
-  .title p:first-child{
+  /* .title p:first-child{
+    text-align: center;
+  } */
+
+  .title p{
     text-align: center;
   }
 
-  .title p{
-    color: white;
+  /* .title > p:first-child{
+    margin-bottom: 80px;
+  } */
+  .title > p:nth-child(1){
+    margin-bottom: 97px;
   }
 
-  .btn{
-    width: 90px;
-    height: 90px;
+  .btn1{
+    width: 130px;
+    height: 130px;
+  }
+
+  .caution{
+    width: 440px;
+    height: 24.2px;
   }
 
   .wrapper1.close{
@@ -77,7 +106,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 10;
 
     /* display: none; */
   }
@@ -97,31 +126,77 @@
     height: 100vh;
     width: 100vw;
     background-color: rgba(255, 252, 252, 0.822);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    /* 位置調整 */
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 20;
 
-    /* opacity: 0; */
-    /* display: none; */
+    opacity: 0;
   }
 
-  .box{
-    padding: 35px;
-    border: solid ;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  .wra3_container{
+    height: 100%;
+    width: 100%;
+    /* 位置調整 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
 
-  .wrapper3.close{
     display: none;
   }
 
+  .box{
+    /* display: none; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .btn2{
+    width: 85px;
+    height: 85px;
+  }
+
+  .box > span{
+    font-size: 49px;
+    border-bottom: solid 2px;
+  }
+
+  /* アニメーション */
+  .wra3_container.open{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .box.open{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }  
+
+  .wrapper3.open{
+    opacity: 1;
+    animation-name:fadeInAnime;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+  }
+  @keyframes fadeInAnime{
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+  .wrapper3.open.close{
+    display: none;
+  }
 
   /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper4{
@@ -154,22 +229,5 @@
   .wrapper4.open{
     display: block;
   }
-
-
-
-/* headerの固定CSS */
-  header{
-    color: rgb(40, 145, 231);
-    font-size: 1.5rem;  
-    position: fixed;
-    top: 20px;
-    left: 30px;
-    z-index: 10;
-  }
-
-
-
-
-
 
 
