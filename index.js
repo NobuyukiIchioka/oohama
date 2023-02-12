@@ -87,7 +87,7 @@ function GIF() {
     // カウントが最大になれば配列を初期値に戻すため「0」を指定する
     if (count == img_list.length) count = 0;
     // 画像選択
-    document.getElementById("gif").src = img[count];
+    document.getElementById("gif").src = img_list [count];
     // 1秒ごとに実行
     setTimeout("GIF()", 1000);
 }
