@@ -227,7 +227,24 @@ header{
   }
 
   .wrapper4.open{
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 
+  .border{
+    position: absolute;
+    top: 50px;
+    z-index: 30;
 
+    width: 960px;
+    height: 250px;
+
+    border: solid 5px red;
+  }
+
+  .gif{
+    width:50px;
+    height: 80px;
+  }
+
+  

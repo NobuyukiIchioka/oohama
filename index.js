@@ -60,11 +60,35 @@ wra3_con.addEventListener( 'click', function(){
 
 
 /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+// 透明BOXにホバーすると
+// 11.BOXに色が変わる
+
+const bor = document.querySelector('.border');
+
+// 11.ホバーイベント
+bor.addEventListener('mouseover', () => {
+    bor.style.background = 'red';
+}, false);
+
+// 離れた処理
+bor.addEventListener('mouseleave', () => {
+    bor.style.background = 'none';
+}, false);
 
 
-  
 
+const img_list = ["img/gif1.png", "img/gif2.png"];
+let count = -1;
 
+GIF(); // 関数を実行
 
-
+function GIF() {
+    count++;
+    // カウントが最大になれば配列を初期値に戻すため「0」を指定する
+    if (count == img_list.length) count = 0;
+    // 画像選択
+    document.getElementById("gif").src = img[count];
+    // 1秒ごとに実行
+    setTimeout("GIF()", 1000);
+}
 
