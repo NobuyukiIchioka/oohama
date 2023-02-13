@@ -61,34 +61,54 @@ wra3_con.addEventListener( 'click', function(){
 
 /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 // 透明BOXにホバーすると
-// 11.BOXに色が変わる
-
-const bor = document.querySelector('.border');
-
-// 11.ホバーイベント
-bor.addEventListener('mouseover', () => {
-    bor.style.background = 'red';
-}, false);
-
-// 離れた処理
-bor.addEventListener('mouseleave', () => {
-    bor.style.background = 'none';
-}, false);
+// 11.BOX1に色が変わる
+// 12.BOX2に色が変わる
+// 13.BOX3に色が変わる
+// 14.GIFアニメ
 
 
-
+const bor1 = document.querySelector('.border1');
+const bor2 = document.querySelector('.border2');
+const bor3 = document.querySelector('.border3');
 const img_list = ["img/gif1.png", "img/gif2.png"];
 let count = -1;
 
-GIF(); // 関数を実行
+// 11.ホバーイベント
+bor1.addEventListener('mouseover', () => {
+    bor1.style.background = 'red';
+}, false);
+// 離れた処理
+bor1.addEventListener('mouseleave', () => {
+    bor1.style.background = 'none';
+}, false);
+  
+// 12.ホバーイベント
+bor2.addEventListener('mouseover', () => {
+    bor2.style.background = 'blue';
+}, false);
+// 離れた処理
+bor2.addEventListener('mouseleave', () => {
+    bor2.style.background = 'none';
+}, false);
 
+// 13.ホバーイベント
+bor3.addEventListener('mouseover', () => {
+    bor3.style.background = 'green';
+}, false);
+// 離れた処理
+bor3.addEventListener('mouseleave', () => {
+    bor3.style.background = 'none';
+}, false);
+
+
+// 14.
+GIF(); // 関数を実行
 function GIF() {
     count++;
     // カウントが最大になれば配列を初期値に戻すため「0」を指定する
     if (count == img_list.length) count = 0;
     // 画像選択
-    document.getElementById("gif").src = img_list [count];
+    document.querySelector(".gif1").src = img_list [count];
     // 1秒ごとに実行
     setTimeout("GIF()", 1000);
 }
-
