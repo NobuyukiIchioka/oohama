@@ -231,20 +231,37 @@ header{
     justify-content: center;
   }
 
-  .border{
+  .border1{
     position: absolute;
-    top: 50px;
+    top: 960px;
     z-index: 30;
 
-    width: 960px;
-    height: 250px;
-
     border: solid 5px red;
+    width: 970px;
+    height: 160px;
   }
 
-  .gif{
+  .border2{
+    position: absolute;
+    top: 1500px;
+    z-index: 30;
+
+    border: solid 5px blue;
+    width: 970px;
+    height: 160px;
+  }
+
+  .border3{
+    position: absolute;
+    top: 1800px;
+    z-index: 30;
+
+    border: solid 5px green;
+    width: 970px;
+    height: 160px;
+  }
+
+  .gif,.gif1{
     width:50px;
     height: 80px;
   }
-
-  
