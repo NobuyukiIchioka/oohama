@@ -125,7 +125,7 @@ header{
   .wrapper3 {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(255, 252, 252, 0.822);
+    /* background-color: rgba(255, 252, 252, 0.822); */
     
     /* 位置調整 */
     position: absolute;
@@ -238,30 +238,31 @@ header{
 
     border: solid 5px red;
     width: 970px;
-    height: 160px;
+    height: 87px;
   }
 
   .border2{
     position: absolute;
-    top: 1500px;
+    top: 1615px;
     z-index: 30;
 
     border: solid 5px blue;
     width: 970px;
-    height: 160px;
+    height: 86px;
   }
 
   .border3{
     position: absolute;
-    top: 1800px;
+    top: 1850px;
     z-index: 30;
 
     border: solid 5px green;
     width: 970px;
-    height: 160px;
+    height: 86px;
   }
 
   .gif,.gif1{
     width:50px;
     height: 80px;
+    text-align: left;
   }

@@ -102,13 +102,15 @@ bor3.addEventListener('mouseleave', () => {
 
 
 // 14.
-GIF(); // 関数を実行
-function GIF() {
+GIF1(); // 関数を実行
+function GIF1() {
     count++;
     // カウントが最大になれば配列を初期値に戻すため「0」を指定する
     if (count == img_list.length) count = 0;
     // 画像選択
     document.querySelector(".gif1").src = img_list [count];
     // 1秒ごとに実行
-    setTimeout("GIF()", 1000);
+    setTimeout("GIF1()", 1000);
 }
+
+
