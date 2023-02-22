@@ -100,6 +100,33 @@ bor3.addEventListener('mouseleave', () => {
     bor3.style.background = 'none';
 }, false);
 
+/**
+ * 朝/昼/夜
+ */
+function switchPageForTime() {
+    
+    // Key=表示開始時刻(Hour)
+    const toHourUrls = [
+        [6, 'https://neibe-stripe.com/WordPress/hfcontent/morning/'],
+        [12, 'https://neibe-stripe.com/WordPress/hfcontent/afternoon/'],
+        [18, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
+    ]
+
+    const hours = new Date().getHours();
+    const viewHours = toHourUrls.reduce((pre, [startHours]) => {
+        if (hours >= startHours) {
+            return startHours;
+        }
+        return pre;
+    }, toHourUrls[0][0]);
+    const [,url] = toHourUrls.find(([startHours]) => startHours === viewHours);
+    const iframePage = document.querySelector('.wrapper4 iframe');
+    iframePage.src = url;
+}
+switchPageForTime();
+
+
+
 
 // 14.
 GIF1(); // 関数を実行
@@ -112,5 +139,4 @@ function GIF1() {
     // 1秒ごとに実行
     setTimeout("GIF1()", 1000);
 }
-
 
