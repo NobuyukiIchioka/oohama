@@ -1,211 +1,24 @@
-/* Webフォント読み込み */
-@font-face {
-	font-family: PixelMplus10-Regular;
-	src: url('PixelMplus/PixelMplus12-Bold.ttf') format("truetype");
-}
-.font{
-  font-size: 45px;
-  font-weight: bold;
-  font-family: PixelMplus10-Regular;
+
+body{
+    font-family: 'Yu Gothic';
+    font-size: 20px;
 }
 
-/* headerの固定CSS */
-header{
-  font-size: 1.5rem;  
-  position: fixed;
-  bottom: 7px;
-  right: 14px;
-  z-index: 35;
-}
 
-.music{
-  width: 290px;
-  height: 32px;
-}
-
-/* mainスタート */
-  body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .body{
-    background-color: black;
-  }
-
-   /* 点滅 */
-   .blinking{
-    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
-      -moz-animation:blink 1.5s ease-in-out infinite alternate;
-      animation:blink 3s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes blink{
-      0% {opacity:0;}
-      100% {opacity:1;}
-  }
-  @-moz-keyframes blink{
-      0% {opacity:0;}
-      100% {opacity:1;}
-  }
-  @keyframes blink{
-      0% {opacity:0;}
-      100% {opacity:1;}
-  }
-  
-
-  /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper1 {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 30;
-  }
-
-  /* .title p:first-child{
-    text-align: center;
-  } */
-
-  .title p{
-    text-align: center;
-  }
-
-  /* .title > p:first-child{
-    margin-bottom: 80px;
-  } */
-  .title > p:nth-child(1){
-    margin-bottom: 97px;
-  }
-
-  .btn1{
-    width: 130px;
-    height: 130px;
-  }
-
-  .caution{
-    width: 440px;
-    height: 24.2px;
-  }
-
-  .wrapper1.close{
-    display: none;
-  }
-
-
-  /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper2{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
+.header{
+    position: fixed;
+    top: 30px;
+    left: 50px;
     z-index: 10;
+}
 
-    /* display: none; */
-  }
-
-  .wrapper2 video{
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .wrapper2.close{
-    display: none;
-  }
-  
-
-  /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper3 {
-    height: 100vh;
-    width: 100vw;
-    /* background-color: rgba(255, 252, 252, 0.822); */
-    
-    /* 位置調整 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-
-    opacity: 0;
-  }
-
-  .wra3_container{
-    height: 100%;
-    width: 100%;
-    /* 位置調整 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-
-    display: none;
-  }
-
-  .box{
-    /* display: none; */
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .btn2{
-    width: 85px;
-    height: 85px;
-  }
-
-  .box > span{
-    font-size: 49px;
-    border-bottom: solid 2px;
-  }
-
-  /* アニメーション */
-  .wra3_container.open{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  .box.open{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }  
-
-  .wrapper3.open{
-    opacity: 1;
-    animation-name:fadeInAnime;
-    animation-duration:3s;
-    animation-fill-mode:forwards;
-  }
-  @keyframes fadeInAnime{
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-
-  .wrapper3.open.close{
-    display: none;
-  }
-
-  /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper4{
+.wrapper4{
     text-align: center;
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
-
-    display: none;
+    display: flex;
+    justify-content: center;
   }
 
   .wrapper4 iframe {
@@ -224,45 +37,4 @@ header{
     width: 100%;
     height: 1900px;
     }
-  }
-
-  .wrapper4.open{
-    display: flex;
-    justify-content: center;
-  }
-
-  .border1{
-    position: absolute;
-    top: 960px;
-    z-index: 30;
-
-    border: solid 5px red;
-    width: 970px;
-    height: 87px;
-  }
-
-  .border2{
-    position: absolute;
-    top: 1615px;
-    z-index: 30;
-
-    border: solid 5px blue;
-    width: 970px;
-    height: 86px;
-  }
-
-  .border3{
-    position: absolute;
-    top: 1850px;
-    z-index: 30;
-
-    border: solid 5px green;
-    width: 970px;
-    height: 86px;
-  }
-
-  .gif,.gif1{
-    width:50px;
-    height: 80px;
-    text-align: left;
   }
