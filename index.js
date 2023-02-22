@@ -46,6 +46,7 @@ movie.addEventListener( 'ended', () => {
 // ⑩wra4が出現
 const wra2 = document.querySelector('.wrapper2');
 const music = document.querySelector('.music');
+const musicContainer = document.querySelector('header');
 const wra4 = document.querySelector('.wrapper4');
 
 // ⑥、⑦、⑧、⑨、⑩
@@ -54,6 +55,7 @@ wra3_con.addEventListener( 'click', function(){
     wra3.classList.add('close');
     wra3_con.classList.remove('open');
     box.classList.remove('open');
+    musicContainer.style.display = 'block';
     music.play();
     wra4.classList.add('open');
     } )

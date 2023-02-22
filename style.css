@@ -10,11 +10,12 @@
 }
 
 /* headerの固定CSS */
-header{
+header {
+  display: none;
   font-size: 1.5rem;  
-  position: fixed;
+  position: absolute;
   bottom: 7px;
-  right: 14px;
+  right: 10px;
   z-index: 35;
 }
 
@@ -28,6 +29,11 @@ header{
     position: relative;
     width: 100%;
     height: 100%;
+  }
+  
+  main {
+    width: 100vw;
+    height: 100vh;
   }
 
   .body{
@@ -56,8 +62,8 @@ header{
 
   /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper1 {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,8 +105,8 @@ header{
 
   /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper2{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,8 +130,8 @@ header{
 
   /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper3 {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     /* background-color: rgba(255, 252, 252, 0.822); */
     
     /* 位置調整 */
@@ -201,20 +207,14 @@ header{
 
   /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper4{
-    text-align: center;
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-
     display: none;
+    height: 100%;
+    width: 100%;
   }
 
   .wrapper4 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 100%;
     width: 100%;
-    height: 3650px;
   }
 
   @media screen and (max-width:767px){
@@ -223,7 +223,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    height: 1900px;
+    height: 100%;
     }
   }
 
@@ -234,11 +234,11 @@ header{
 
   .border1{
     position: absolute;
-    top: 960px;
+    top: 59.5rem;
     z-index: 30;
 
     border: solid 5px red;
-    width: 970px;
+    width: 90vw;
     height: 87px;
   }
 
@@ -248,7 +248,7 @@ header{
     z-index: 30;
 
     border: solid 5px blue;
-    width: 970px;
+    width: 90vw;
     height: 86px;
   }
 
@@ -258,7 +258,7 @@ header{
     z-index: 30;
 
     border: solid 5px green;
-    width: 970px;
+    width: 90vw;
     height: 86px;
   }
 
