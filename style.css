@@ -100,6 +100,7 @@ header{
   /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper2{
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,8 +113,8 @@ header{
   }
 
   .wrapper2 video{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 
   .wrapper2.close{
