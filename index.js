@@ -107,6 +107,7 @@ function switchPageForTime() {
     
     // Key=表示開始時刻(Hour)
     const toHourUrls = [
+        [0, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
         [6, 'https://neibe-stripe.com/WordPress/hfcontent/morning/'],
         [12, 'https://neibe-stripe.com/WordPress/hfcontent/afternoon/'],
         [18, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
