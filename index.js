@@ -107,92 +107,114 @@ function setWidthHeightFunc(selector) {
     return (height, width) => {
         const dom = document.querySelector(selector);
         dom.style.width = width;
-        dom.style.height = `${height}vh`;
+        dom.style.height = `${height}px`;
     };
 }
 
 function setTopFunc(selector) {
     return (top) => {
         const dom = document.querySelector(selector);
-        dom.style.top = `${top}vh`;
+        dom.style.top = `${top}px`;
     };
 }
 
 // 800 x 800 を基準に座標を決定、1aspectRaito = 380vh として計算。
 const standardHeightVhsFor800x800 = {
-    iframe: [380, adjustSizeIframe, setWidthHeightFunc('.wrapper4 iframe')],
-    border1: [100, adjustSizeBorder, setTopFunc('.border1')],
-    border2: [177, adjustSizeBorder, setTopFunc('.border2')],
-    border3: [207, adjustSizeBorder, setTopFunc('.border3')],
+    iframe: [3350, adjustSizeIframe, setWidthHeightFunc('.wrapper4 iframe')],
+    border1: [940, adjustSizeBorder, setTopFunc('.border1')],
+    border2: [1650, adjustSizeBorder2, setTopFunc('.border2')],
+    border3: [1910, adjustSizeBorder3, setTopFunc('.border3')],
 };
 
 function adjustSizeIframe(standardHeightVh, setFunc) {
     
     //0.125aspectごとに40vh増加
-    const [width, height] = getAdjustSize(standardHeightVh, 40, 0.125);
+    const [width, height] = getAdjustSize(standardHeightVh, 650, 350);
+    // const [width, height] = getAdjustSize(standardHeightVh, 850, 250);
     setFunc(height, width);
 
 
-    // 1000px x 3350px = 0.30asp
+    // 1000px x 3350px = 3350px 0.30asp
+    // 750px x 3350px = 2850px 0.22asp
+    // 500px x 3350px = 2000px 0.149asp
+    // 250px x 3350px = 1150px 0.074asp
+    // 500px x 1000px = 2000px 0.5asp
+    
+    // 1000px x 1675px = 
+
+    // 横幅で計算
+    // 850px/0.07asp 
+
+    // width = 250px 850px
 
 
-    // 1000 * 1000 = 340vh
-    // 900 * 1000 = 330vh
-    // 800 * 1000 = 300vh
-    // 700 * 1000 = 270vh
-    // 600 * 1000 = 240vh
-    // 500 * 1000 = 210vh
-    // 400 * 1000 = 280vh
-    // 300 * 1000 = 
-    // 200 * 1000 = 
-    // 100 * 1000 = 
-    // 1000 * 900 = 
-    // 1000 * 800 = 
-    // 1000 * 700 = 
-    // 1000 * 600 = 
-    // 1000 * 500 = 
-    // 1000 * 400 = 
-    // 1000 * 300 = 
-    // 1000 * 200 = 
-    // 1000 * 100 = 
 }
 
 function adjustSizeBorder(standardHeightVh, setFunc) {
     
     //0.125aspectごとに20vh増加
-    const [width, height] = getAdjustSize(standardHeightVh, 15, 0.125);
+    // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
+    const [width, height] = getAdjustSize(standardHeightVh, 100, 130);
 
-    // 800 * 800 = 100vh 1asp
-    // 400 * 800 = 60vh 0.5asp 15up
-    // 300 * 800 = 45vh 0.375asp 15up
-    // 200 * 800 = 30vh 0.25asp
-    // 800 * 400 = 200vh 2asp
-    // 800 * 300 = 268vh 2.6asp
-    // 800 * 200 = 400vh 4asp
+
+    // 500 = 550px
+    // 400 = 470px
+    // 300 = 370px
+    
+
+    setFunc(height, width);
+}
+
+function adjustSizeBorder2(standardHeightVh, setFunc) {
+    
+    //0.125aspectごとに20vh増加
+    // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
+    const [width, height] = getAdjustSize(standardHeightVh, 200, 150);
+    
+
+    setFunc(height, width);
+}
+
+function adjustSizeBorder3(standardHeightVh, setFunc) {
+    
+    //0.125aspectごとに20vh増加
+    // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
+    const [width, height] = getAdjustSize(standardHeightVh, 250, 170);
+    
+
     setFunc(height, width);
 }
 
 
 function getAdjustSize(standardHeightVh, aspectUnit, vhPerAspect) {
-    
-    //0.125aspectごとに40vh増加
-    const height = window.innerHeight
+
+
+    const responsiveThreshold = [1000, 3350];
+
+    const [thWidth, thHeight] = responsiveThreshold;
+
     const width = window.innerWidth;
-    const aspectRaito = width / height;
-    const diffAspect = aspectRaito - 1;
-    const calcHeight = aspectUnit * diffAspect / vhPerAspect;
-    
+    // const height = window.innerHeight
+
+    if (width >= thWidth) {
+
+        return [width, standardHeightVh];
+    }
+
+    const diffWidth = (width - thWidth) / vhPerAspect;
+    const calcHeight = diffWidth * aspectUnit;
+
     return [width, standardHeightVh + calcHeight];
 }
 
-// function adjustSize() {    
-//     Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc]) => {
+function adjustSize() {    
+    Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc]) => {
 
-//         adjustFunc(standardHeight, setFunc);
-//     })
-// }
-// adjustSize();
-// window.addEventListener('resize', adjustSize);
+        adjustFunc(standardHeight, setFunc);
+    })
+}
+adjustSize();
+window.addEventListener('resize', adjustSize);
 
 
 /**
