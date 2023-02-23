@@ -210,21 +210,22 @@ header {
     width: 100%;
   }
 
+  /**
+   *  height: 3,350px
+   *  width: 1,000px
+   *  が現状の最大サイズ
+   *  
+   *  width < 1000px は伸縮する。
+   */
   .wrapper4 iframe {
-    height: 300vh;
+    height: 3350px;
     width: 100%;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
   }
 
-  /* @media screen and (max-width:767px){
+  /* @media screen and (max-width:1000px){
     .wrapper4 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 200vh;
+    height: 3350px;
     }
   } */
 
@@ -235,7 +236,7 @@ header {
 
   .border1{
     position: absolute;
-    top: 36.5rem;
+    top: 940px;
     z-index: 30;
 
     border: solid 5px red;
@@ -245,7 +246,7 @@ header {
 
   .border2{
     position: absolute;
-    top: 63rem;
+    top: 1650px;
     z-index: 30;
 
     border: solid 5px blue;
@@ -255,7 +256,7 @@ header {
 
   .border3{
     position: absolute;
-    top: 75rem;
+    top: 1910px;
     z-index: 30;
 
     border: solid 5px green;

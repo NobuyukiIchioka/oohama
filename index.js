@@ -102,6 +102,99 @@ bor3.addEventListener('mouseleave', () => {
     bor3.style.background = 'none';
 }, false);
 
+
+function setWidthHeightFunc(selector) {
+    return (height, width) => {
+        const dom = document.querySelector(selector);
+        dom.style.width = width;
+        dom.style.height = `${height}vh`;
+    };
+}
+
+function setTopFunc(selector) {
+    return (top) => {
+        const dom = document.querySelector(selector);
+        dom.style.top = `${top}vh`;
+    };
+}
+
+// 800 x 800 を基準に座標を決定、1aspectRaito = 380vh として計算。
+const standardHeightVhsFor800x800 = {
+    iframe: [380, adjustSizeIframe, setWidthHeightFunc('.wrapper4 iframe')],
+    border1: [100, adjustSizeBorder, setTopFunc('.border1')],
+    border2: [177, adjustSizeBorder, setTopFunc('.border2')],
+    border3: [207, adjustSizeBorder, setTopFunc('.border3')],
+};
+
+function adjustSizeIframe(standardHeightVh, setFunc) {
+    
+    //0.125aspectごとに40vh増加
+    const [width, height] = getAdjustSize(standardHeightVh, 40, 0.125);
+    setFunc(height, width);
+
+
+    // 1000px x 3350px = 0.30asp
+
+
+    // 1000 * 1000 = 340vh
+    // 900 * 1000 = 330vh
+    // 800 * 1000 = 300vh
+    // 700 * 1000 = 270vh
+    // 600 * 1000 = 240vh
+    // 500 * 1000 = 210vh
+    // 400 * 1000 = 280vh
+    // 300 * 1000 = 
+    // 200 * 1000 = 
+    // 100 * 1000 = 
+    // 1000 * 900 = 
+    // 1000 * 800 = 
+    // 1000 * 700 = 
+    // 1000 * 600 = 
+    // 1000 * 500 = 
+    // 1000 * 400 = 
+    // 1000 * 300 = 
+    // 1000 * 200 = 
+    // 1000 * 100 = 
+}
+
+function adjustSizeBorder(standardHeightVh, setFunc) {
+    
+    //0.125aspectごとに20vh増加
+    const [width, height] = getAdjustSize(standardHeightVh, 15, 0.125);
+
+    // 800 * 800 = 100vh 1asp
+    // 400 * 800 = 60vh 0.5asp 15up
+    // 300 * 800 = 45vh 0.375asp 15up
+    // 200 * 800 = 30vh 0.25asp
+    // 800 * 400 = 200vh 2asp
+    // 800 * 300 = 268vh 2.6asp
+    // 800 * 200 = 400vh 4asp
+    setFunc(height, width);
+}
+
+
+function getAdjustSize(standardHeightVh, aspectUnit, vhPerAspect) {
+    
+    //0.125aspectごとに40vh増加
+    const height = window.innerHeight
+    const width = window.innerWidth;
+    const aspectRaito = width / height;
+    const diffAspect = aspectRaito - 1;
+    const calcHeight = aspectUnit * diffAspect / vhPerAspect;
+    
+    return [width, standardHeightVh + calcHeight];
+}
+
+// function adjustSize() {    
+//     Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc]) => {
+
+//         adjustFunc(standardHeight, setFunc);
+//     })
+// }
+// adjustSize();
+// window.addEventListener('resize', adjustSize);
+
+
 /**
  * 朝/昼/夜
  */
@@ -142,4 +235,3 @@ function GIF1() {
     // 1秒ごとに実行
     setTimeout("GIF1()", 1000);
 }
-
