@@ -73,36 +73,6 @@ const bor1 = document.querySelector('.border1');
 const bor2 = document.querySelector('.border2');
 const bor3 = document.querySelector('.border3');
 const img_list = ["img/gif1.png", "img/gif2.png"];
-let count = -1;
-
-// 11.ホバーイベント
-bor1.addEventListener('mouseover', () => {
-    bor1.style.background = 'red';
-}, false);
-// 離れた処理
-bor1.addEventListener('mouseleave', () => {
-    bor1.style.background = 'none';
-}, false);
-  
-// 12.ホバーイベント
-bor2.addEventListener('mouseover', () => {
-    bor2.style.background = 'blue';
-}, false);
-// 離れた処理
-bor2.addEventListener('mouseleave', () => {
-    bor2.style.background = 'none';
-}, false);
-
-// 13.ホバーイベント
-bor3.addEventListener('mouseover', () => {
-    bor3.style.background = 'green';
-}, false);
-// 離れた処理
-bor3.addEventListener('mouseleave', () => {
-    bor3.style.background = 'none';
-}, false);
-
-
 
 /**
  * Containerなどの高さを設定する関数。
@@ -207,18 +177,3 @@ function switchPageForTime() {
     iframePage.src = url;
 }
 switchPageForTime();
-
-
-
-
-// 14.
-GIF1(); // 関数を実行
-function GIF1() {
-    count++;
-    // カウントが最大になれば配列を初期値に戻すため「0」を指定する
-    if (count == img_list.length) count = 0;
-    // 画像選択
-    document.querySelector(".gif1").src = img_list [count];
-    // 1秒ごとに実行
-    setTimeout("GIF1()", 1000);
-}

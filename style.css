@@ -264,8 +264,54 @@ header {
     height: 86px;
   }
 
-  .gif,.gif1{
+  .gif1,.gif2{
     width:50px;
     height: 80px;
     text-align: left;
+  }
+
+  .image-container {
+    position: relative;
+  }
+  
+  .image1, .image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 40;
+  }
+
+  .image1 {
+    opacity: 1;
+  }
+  
+  .image2 {
+    opacity: 0;
+  }
+
+  @keyframes slideshow {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .image-container:hover .image1 {
+    animation-name: slideshow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+  }
+
+  .image-container:hover .image2 {
+    animation-name: slideshow;
+    animation-duration: 2s;
+    animation-direction: reverse;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
   }
