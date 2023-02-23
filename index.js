@@ -103,6 +103,12 @@ bor3.addEventListener('mouseleave', () => {
 }, false);
 
 
+
+/**
+ * Containerなどの高さを設定する関数。
+ * @param {string} selector 
+ * @returns
+ */
 function setWidthHeightFunc(selector) {
     return (height, width) => {
         const dom = document.querySelector(selector);
@@ -111,6 +117,11 @@ function setWidthHeightFunc(selector) {
     };
 }
 
+/**
+ * absoluteのDOMのtopを設定する関数。
+ * @param {string} selector 
+ * @returns 
+ */
 function setTopFunc(selector) {
     return (top) => {
         const dom = document.querySelector(selector);
@@ -118,83 +129,36 @@ function setTopFunc(selector) {
     };
 }
 
-// 800 x 800 を基準に座標を決定、1aspectRaito = 380vh として計算。
+// 1000 x 3350 を基準に座標を決定。
 const standardHeightVhsFor800x800 = {
-    iframe: [3350, adjustSizeIframe, setWidthHeightFunc('.wrapper4 iframe')],
-    border1: [940, adjustSizeBorder, setTopFunc('.border1')],
-    border2: [1650, adjustSizeBorder2, setTopFunc('.border2')],
-    border3: [1910, adjustSizeBorder3, setTopFunc('.border3')],
+    iframe: [3350, adjustSize, setWidthHeightFunc('.wrapper4 iframe'), 2.5],
+    border1: [940, adjustSize, setTopFunc('.border1'), 0.8],
+    border2: [1650, adjustSize, setTopFunc('.border2'), 1.4],
+    border3: [1910, adjustSize, setTopFunc('.border3'), 1.5],
 };
 
-function adjustSizeIframe(standardHeightVh, setFunc) {
+/**
+ * 
+ * @param {*} standardHeightVh 
+ * @param {*} setFunc 
+ * @param {*} heightCoefficient 
+ */
+function adjustSize(standardHeightVh, setFunc, heightCoefficient) {
     
-    //0.125aspectごとに40vh増加
-    const [width, height] = getAdjustSize(standardHeightVh, 2.5);
-    // const [width, height] = getAdjustSize(standardHeightVh, 850, 250);
-    setFunc(height, width);
-
-
-    // 1000px x 3350px = 3350px 0.30asp
-    // 750px x 3350px = 2850px 0.22asp
-    // 500px x 3350px = 2000px 0.149asp
-    // 250px x 3350px = 1150px 0.074asp
-    // 500px x 1000px = 2000px 0.5asp
-    
-    // 1000px x 1675px = 
-
-    // 横幅で計算
-    // 850px/0.07asp 
-
-    // width = 250px 850px
-
-
-}
-
-function adjustSizeBorder(standardHeightVh, setFunc) {
-    
-    //0.125aspectごとに20vh増加
-    // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
-    const [width, height] = getAdjustSize(standardHeightVh, 0.8);
-
-
-    // 500 = 550px
-    // 400 = 470px
-    // 300 = 370px
-    
-
+    const [width, height] = getAdjustSize(standardHeightVh, heightCoefficient);
     setFunc(height, width);
 }
 
-function adjustSizeBorder2(standardHeightVh, setFunc) {
-    
-    //0.125aspectごとに20vh増加
-    // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
-    const [width, height] = getAdjustSize(standardHeightVh, 1.4);
-    
-
-    setFunc(height, width);
-}
-
-function adjustSizeBorder3(standardHeightVh, setFunc) {
-    
-    //0.125aspectごとに20vh増加
-    // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
-    const [width, height] = getAdjustSize(standardHeightVh, 1.5);
-    
-
-    setFunc(height, width);
-}
-
-
+/**
+ * 調整したサイズを取得。
+ * @param {*} standardHeightVh 
+ * @param {*} vhPerAspect 
+ * @returns 
+ */
 function getAdjustSize(standardHeightVh, vhPerAspect) {
 
-
-    const responsiveThreshold = [1000, 3350];
-
-    const [thWidth, thHeight] = responsiveThreshold;
-
+    const thWidth = 1000;
     const width = window.innerWidth;
-    // const height = window.innerHeight
 
     if (width >= thWidth) {
 
@@ -202,18 +166,20 @@ function getAdjustSize(standardHeightVh, vhPerAspect) {
     }
 
     const diffWidth = (width - thWidth) * vhPerAspect;
-
     return [width, standardHeightVh + diffWidth];
 }
 
-function adjustSize() {    
-    Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc]) => {
+/**
+ * 調整対象を調整。
+ */
+function adjustSizeAll() {    
+    Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc, heightCoefficient]) => {
 
-        adjustFunc(standardHeight, setFunc);
+        adjustFunc(standardHeight, setFunc, heightCoefficient);
     })
 }
-adjustSize();
-window.addEventListener('resize', adjustSize);
+adjustSizeAll();
+window.addEventListener('resize', adjustSizeAll);
 
 
 /**
