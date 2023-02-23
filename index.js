@@ -46,6 +46,7 @@ movie.addEventListener( 'ended', () => {
 // ⑩wra4が出現
 const wra2 = document.querySelector('.wrapper2');
 const music = document.querySelector('.music');
+const musicContainer = document.querySelector('header');
 const wra4 = document.querySelector('.wrapper4');
 
 // ⑥、⑦、⑧、⑨、⑩
@@ -54,6 +55,7 @@ wra3_con.addEventListener( 'click', function(){
     wra3.classList.add('close');
     wra3_con.classList.remove('open');
     box.classList.remove('open');
+    musicContainer.style.display = 'block';
     music.play();
     wra4.classList.add('open');
     } )
@@ -71,46 +73,107 @@ const bor1 = document.querySelector('.border1');
 const bor2 = document.querySelector('.border2');
 const bor3 = document.querySelector('.border3');
 const img_list = ["img/gif1.png", "img/gif2.png"];
-let count = -1;
 
-// 11.ホバーイベント
-bor1.addEventListener('mouseover', () => {
-    bor1.style.background = 'red';
-}, false);
-// 離れた処理
-bor1.addEventListener('mouseleave', () => {
-    bor1.style.background = 'none';
-}, false);
-  
-// 12.ホバーイベント
-bor2.addEventListener('mouseover', () => {
-    bor2.style.background = 'blue';
-}, false);
-// 離れた処理
-bor2.addEventListener('mouseleave', () => {
-    bor2.style.background = 'none';
-}, false);
-
-// 13.ホバーイベント
-bor3.addEventListener('mouseover', () => {
-    bor3.style.background = 'green';
-}, false);
-// 離れた処理
-bor3.addEventListener('mouseleave', () => {
-    bor3.style.background = 'none';
-}, false);
-
-
-// 14.
-GIF1(); // 関数を実行
-function GIF1() {
-    count++;
-    // カウントが最大になれば配列を初期値に戻すため「0」を指定する
-    if (count == img_list.length) count = 0;
-    // 画像選択
-    document.querySelector(".gif1").src = img_list [count];
-    // 1秒ごとに実行
-    setTimeout("GIF1()", 1000);
+/**
+ * Containerなどの高さを設定する関数。
+ * @param {string} selector 
+ * @returns
+ */
+function setWidthHeightFunc(selector) {
+    return (height, width) => {
+        const dom = document.querySelector(selector);
+        dom.style.width = width;
+        dom.style.height = `${height}px`;
+    };
 }
 
+/**
+ * absoluteのDOMのtopを設定する関数。
+ * @param {string} selector 
+ * @returns 
+ */
+function setTopFunc(selector) {
+    return (top) => {
+        const dom = document.querySelector(selector);
+        dom.style.top = `${top}px`;
+    };
+}
 
+// 1000 x 3350 を基準に座標を決定。
+const standardHeightVhsFor800x800 = {
+    iframe: [3350, adjustSize, setWidthHeightFunc('.wrapper4 iframe'), 2.5],
+    border1: [940, adjustSize, setTopFunc('.border1'), 0.8],
+    border2: [1650, adjustSize, setTopFunc('.border2'), 1.4],
+    border3: [1910, adjustSize, setTopFunc('.border3'), 1.5],
+};
+
+/**
+ * 
+ * @param {*} standardHeightVh 
+ * @param {*} setFunc 
+ * @param {*} heightCoefficient 
+ */
+function adjustSize(standardHeightVh, setFunc, heightCoefficient) {
+    
+    const [width, height] = getAdjustSize(standardHeightVh, heightCoefficient);
+    setFunc(height, width);
+}
+
+/**
+ * 調整したサイズを取得。
+ * @param {*} standardHeightVh 
+ * @param {*} vhPerAspect 
+ * @returns 
+ */
+function getAdjustSize(standardHeightVh, vhPerAspect) {
+
+    const thWidth = 1000;
+    const width = window.innerWidth;
+
+    if (width >= thWidth) {
+
+        return [width, standardHeightVh];
+    }
+
+    const diffWidth = (width - thWidth) * vhPerAspect;
+    return [width, standardHeightVh + diffWidth];
+}
+
+/**
+ * 調整対象を調整。
+ */
+function adjustSizeAll() {    
+    Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc, heightCoefficient]) => {
+
+        adjustFunc(standardHeight, setFunc, heightCoefficient);
+    })
+}
+adjustSizeAll();
+window.addEventListener('resize', adjustSizeAll);
+
+
+/**
+ * 朝/昼/夜
+ */
+function switchPageForTime() {
+    
+    // Key=表示開始時刻(Hour)
+    const toHourUrls = [
+        [0, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
+        [6, 'https://neibe-stripe.com/WordPress/hfcontent/morning/'],
+        [12, 'https://neibe-stripe.com/WordPress/hfcontent/afternoon/'],
+        [18, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
+    ]
+
+    const hours = new Date().getHours();
+    const viewHours = toHourUrls.reduce((pre, [startHours]) => {
+        if (hours >= startHours) {
+            return startHours;
+        }
+        return pre;
+    }, toHourUrls[0][0]);
+    const [,url] = toHourUrls.find(([startHours]) => startHours === viewHours);
+    const iframePage = document.querySelector('.wrapper4 iframe');
+    iframePage.src = url;
+}
+switchPageForTime();

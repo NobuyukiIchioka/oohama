@@ -10,11 +10,12 @@
 }
 
 /* headerの固定CSS */
-header{
+header {
+  display: none;
   font-size: 1.5rem;  
   position: fixed;
   bottom: 7px;
-  right: 14px;
+  right: 10px;
   z-index: 35;
 }
 
@@ -27,7 +28,10 @@ header{
   body {
     position: relative;
     width: 100%;
-    height: 100%;
+  }
+  
+  main {
+    width: 100vw;
   }
 
   .body{
@@ -57,7 +61,7 @@ header{
   /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper1 {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,6 +104,7 @@ header{
   /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper2{
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,8 +117,8 @@ header{
   }
 
   .wrapper2 video{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 
   .wrapper2.close{
@@ -124,7 +129,7 @@ header{
   /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper3 {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     /* background-color: rgba(255, 252, 252, 0.822); */
     
     /* 位置調整 */
@@ -200,31 +205,29 @@ header{
 
   /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper4{
-    text-align: center;
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-
     display: none;
+    height: 100%;
+    width: 100%;
   }
 
+  /**
+   *  height: 3,350px
+   *  width: 1,000px
+   *  が現状の最大サイズ
+   *  
+   *  width < 1000px は伸縮する。
+   */
   .wrapper4 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 3350px;
     width: 100%;
-    height: 3650px;
   }
 
-  @media screen and (max-width:767px){
+  /* @media screen and (max-width:1000px){
     .wrapper4 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 1900px;
+    height: 3350px;
     }
-  }
+  } */
 
   .wrapper4.open{
     display: flex;
@@ -233,36 +236,82 @@ header{
 
   .border1{
     position: absolute;
-    top: 960px;
+    top: 940px;
     z-index: 30;
 
     border: solid 5px red;
-    width: 970px;
+    width: 90vw;
     height: 87px;
   }
 
   .border2{
     position: absolute;
-    top: 1615px;
+    top: 1650px;
     z-index: 30;
 
     border: solid 5px blue;
-    width: 970px;
+    width: 90vw;
     height: 86px;
   }
 
   .border3{
     position: absolute;
-    top: 1850px;
+    top: 1910px;
     z-index: 30;
 
     border: solid 5px green;
-    width: 970px;
+    width: 90vw;
     height: 86px;
   }
 
-  .gif,.gif1{
+  .gif1,.gif2{
     width:50px;
     height: 80px;
     text-align: left;
+  }
+
+  .image-container {
+    position: relative;
+  }
+  
+  .image1, .image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 40;
+  }
+
+  .image1 {
+    opacity: 1;
+  }
+  
+  .image2 {
+    opacity: 0;
+  }
+
+  @keyframes slideshow {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .image-container:hover .image1 {
+    animation-name: slideshow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+  }
+
+  .image-container:hover .image2 {
+    animation-name: slideshow;
+    animation-duration: 2s;
+    animation-direction: reverse;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
   }
