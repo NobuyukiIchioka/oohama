@@ -129,7 +129,7 @@ const standardHeightVhsFor800x800 = {
 function adjustSizeIframe(standardHeightVh, setFunc) {
     
     //0.125aspectごとに40vh増加
-    const [width, height] = getAdjustSize(standardHeightVh, 650, 350);
+    const [width, height] = getAdjustSize(standardHeightVh, 2.5);
     // const [width, height] = getAdjustSize(standardHeightVh, 850, 250);
     setFunc(height, width);
 
@@ -154,7 +154,7 @@ function adjustSizeBorder(standardHeightVh, setFunc) {
     
     //0.125aspectごとに20vh増加
     // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
-    const [width, height] = getAdjustSize(standardHeightVh, 100, 130);
+    const [width, height] = getAdjustSize(standardHeightVh, 0.8);
 
 
     // 500 = 550px
@@ -169,7 +169,7 @@ function adjustSizeBorder2(standardHeightVh, setFunc) {
     
     //0.125aspectごとに20vh増加
     // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
-    const [width, height] = getAdjustSize(standardHeightVh, 200, 150);
+    const [width, height] = getAdjustSize(standardHeightVh, 1.4);
     
 
     setFunc(height, width);
@@ -179,14 +179,14 @@ function adjustSizeBorder3(standardHeightVh, setFunc) {
     
     //0.125aspectごとに20vh増加
     // const [width, height] = getAdjustSize(standardHeightVh, 150, 500);
-    const [width, height] = getAdjustSize(standardHeightVh, 250, 170);
+    const [width, height] = getAdjustSize(standardHeightVh, 1.5);
     
 
     setFunc(height, width);
 }
 
 
-function getAdjustSize(standardHeightVh, aspectUnit, vhPerAspect) {
+function getAdjustSize(standardHeightVh, vhPerAspect) {
 
 
     const responsiveThreshold = [1000, 3350];
@@ -201,10 +201,9 @@ function getAdjustSize(standardHeightVh, aspectUnit, vhPerAspect) {
         return [width, standardHeightVh];
     }
 
-    const diffWidth = (width - thWidth) / vhPerAspect;
-    const calcHeight = diffWidth * aspectUnit;
+    const diffWidth = (width - thWidth) * vhPerAspect;
 
-    return [width, standardHeightVh + calcHeight];
+    return [width, standardHeightVh + diffWidth];
 }
 
 function adjustSize() {    
