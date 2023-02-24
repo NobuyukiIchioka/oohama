@@ -301,14 +301,18 @@ header {
     }
   }
   
-  .image-container:hover .image1 {
+  .border1:hover .image1,
+  .border2:hover .image1,
+  .border3:hover .image1 {
     animation-name: slideshow;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: step-end;
   }
 
-  .image-container:hover .image2 {
+  .border1:hover .image2,
+  .border2:hover .image2,
+  .border3:hover .image2 {
     animation-name: slideshow;
     animation-duration: 2s;
     animation-direction: reverse;
