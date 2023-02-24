@@ -222,13 +222,6 @@ header {
     width: 100%;
   }
 
-  /* @media screen and (max-width:1000px){
-    .wrapper4 iframe {
-    width: 100%;
-    height: 3350px;
-    }
-  } */
-
   .wrapper4.open{
     display: flex;
     justify-content: center;
@@ -264,6 +257,9 @@ header {
     height: 86px;
   }
 
+  /*
+   * --- 以下、画像アニメーション関連
+   */
   .gif1,.gif2{
     width:50px;
     height: 80px;
@@ -289,6 +285,7 @@ header {
     opacity: 0;
   }
 
+  /* アニメーション処理 */
   @keyframes slideshow {
     0% {
       opacity: 0;
@@ -301,6 +298,8 @@ header {
     }
   }
   
+  /* 以下、ホバー時にアニメーション処理 */
+  /* 画像1のアニメーション通常再生 */
   .border1:hover .image1,
   .border2:hover .image1,
   .border3:hover .image1 {
@@ -310,6 +309,7 @@ header {
     animation-timing-function: step-end;
   }
 
+  /* 画像2のアニメーション逆再生 */
   .border1:hover .image2,
   .border2:hover .image2,
   .border3:hover .image2 {

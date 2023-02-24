@@ -62,18 +62,15 @@ wra3_con.addEventListener( 'click', function(){
 
 
 /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+// --- 以下はstyle.cssで制御
 // 透明BOXにホバーすると
 // 11.BOX1に色が変わる
 // 12.BOX2に色が変わる
 // 13.BOX3に色が変わる
 // 14.GIFアニメ
 
-
-const bor1 = document.querySelector('.border1');
-const bor2 = document.querySelector('.border2');
-const bor3 = document.querySelector('.border3');
-const img_list = ["img/gif1.png", "img/gif2.png"];
-
+// --- 以下はアニメーション画像の位置調整
+// XXX iframe内のオブジェクト正確な位置を取得できないため不安定。
 /**
  * Containerなどの高さを設定する関数。
  * @param {string} selector 
@@ -108,7 +105,7 @@ const standardHeightVhsFor800x800 = {
 };
 
 /**
- * 
+ * 調整して調整対象に調整指示をだす。
  * @param {*} standardHeightVh 
  * @param {*} setFunc 
  * @param {*} heightCoefficient 
@@ -140,7 +137,7 @@ function getAdjustSize(standardHeightVh, vhPerAspect) {
 }
 
 /**
- * 調整対象を調整。
+ * 全ての調整対象を調整。
  */
 function adjustSizeAll() {    
     Object.values(standardHeightVhsFor800x800).forEach(([standardHeight, adjustFunc, setFunc, heightCoefficient]) => {
@@ -153,7 +150,7 @@ window.addEventListener('resize', adjustSizeAll);
 
 
 /**
- * 朝/昼/夜
+ * 朝/昼/夜 切り替え処理
  */
 function switchPageForTime() {
     
