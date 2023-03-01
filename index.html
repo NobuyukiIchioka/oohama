@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>大浜鍼灸整骨院HP</title>
-      <link rel="stylesheet" href="reset.css" >
+      <!-- <link rel="stylesheet" href="reset.css" > -->
       <link rel="stylesheet" href="style.css" >
   </head>
   <body>
@@ -24,7 +24,11 @@
 
       <!-- 2nd -->
       <div class="wrapper2 body">
-        <div><video src="./movie/sample2.mp4" class="movie"></video></div>
+        <video src="./movie/sample2.mp4" class="movie"></video>
+        <div class="controller">
+          <button class="btn_icon"><img src="./img/volume-high.svg" alt="sound" id="icon"></button>
+            <input type="range" id="volume" value="0.5" min="0.0" max="1.0" step="0.1">
+        </div>
       </div>
 
       <!-- 3rd -->

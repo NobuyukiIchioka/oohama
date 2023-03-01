@@ -1,7 +1,4 @@
-// 5秒後に自動遷移(JavaScriptの読み込むテスト用)
-// setTimeout(function(){
-//     window.location.href = 'https://www.google.com/';
-//   }, 3*1000);
+
 
 
 /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -34,6 +31,29 @@ movie.addEventListener( 'ended', () => {
     wra3_con.classList.add('open');
     box.classList.add('open');
   } )
+
+// コントローラー
+    // ビデオ、アイコン画像、ボリュームを取得
+const video = document.querySelector("video");
+const mute_icon = document.getElementById("icon");
+const volume_slider = document.getElementById("volume");
+
+// ボリュームの初期設定
+video.volume = volume_slider.value;
+// 消音ボタンの画像を切り替え
+mute_icon.onclick = function() {
+    if(video.muted){
+        video.muted = false;
+        icon.src = "./img/volume-high.svg";
+    }else{
+        video.muted = true;
+        icon.src = "./img/volume-mute.svg";
+    }
+}
+// 音量調整スライダーを操作したとき
+volume_slider.addEventListener("input", (e) => {
+    video.volume = volume_slider.value;
+  });
 
 
 /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
