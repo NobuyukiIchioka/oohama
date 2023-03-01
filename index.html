@@ -1,26 +1,79 @@
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大浜鍼灸整骨院HP</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
-</head>
-<body>
-    <header class="header">
-        <div><a href="./next.html">nextページ</a></div>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>大浜鍼灸整骨院HP</title>
+      <!-- <link rel="stylesheet" href="reset.css" > -->
+      <link rel="stylesheet" href="style.css" >
+  </head>
+  <body>
+    <header>
+      <div><audio controls loop volume0.1 src="./music/BGM.mp3"  class="music"></audio></div>
     </header>
-    <!-- 4th -->
-    <div class="wrapper4">
-        <iframe 
-          width="100%" 
-          height="100%" 
-          src="https://elate-up.com/hfcontent/test5/">
-        </iframe>
+    
+    <main>
+      <!-- 1st -->
+      <div class="wrapper1 body">
+        <div class="title">
+          <p><img src="./img/bt1.png" alt="button" class="btn1"></p>
+          <p class="blinking"><img src="./img/caution.png" alt="" class="caution "></p>
+        </div>
       </div>
-</body>
+
+      <!-- 2nd -->
+      <div class="wrapper2 body">
+        <video src="./movie/sample2.mp4" class="movie"></video>
+        <div class="controller">
+          <button class="btn_icon"><img src="./img/volume-high.svg" alt="sound" id="icon"></button>
+            <input type="range" id="volume" value="0.5" min="0.0" max="1.0" step="0.1">
+        </div>
+      </div>
+
+      <!-- 3rd -->
+      <div class="wrapper3">
+        <div class="wra3_container">
+          <div class="box">
+            <img src="./img/bt2.png" alt="button" class="btn2">
+            <span class="font blinking">Press any button. </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4th -->
+      <div class="wrapper4">
+        <iframe
+          src="https://neibe-stripe.com/WordPress/hfcontent/normal/"
+          scrolling="no">
+        </iframe>
+        <div class="border1">
+          <div class="image-container">
+            <img src="./img/gif1.png" class="image1 gif1" />
+            <img src="./img/gif2.png" class="image2 gif2" />
+          </div>
+        </div>
+        <div class="border2">
+          <div class="image-container">
+            <img src="./img/gif1.png" class="image1 gif1" />
+            <img src="./img/gif2.png" class="image2 gif2" />
+          </div>
+        </div>
+        <div class="border3">
+          <div class="image-container">
+            <img src="./img/gif1.png" class="image1 gif1" />
+            <img src="./img/gif2.png" class="image2 gif2" />
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+      
+    
+
+    <!-- JavaScript操作 -->
+    <script src="index.js"></script>
+
+  </body>
 </html>

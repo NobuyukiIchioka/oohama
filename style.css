@@ -1,40 +1,349 @@
-
-body{
-    font-family: 'Yu Gothic';
-    font-size: 20px;
+/* Webフォント読み込み */
+@font-face {
+	font-family: PixelMplus10-Regular;
+	src: url('PixelMplus/PixelMplus12-Bold.ttf') format("truetype");
+}
+.font{
+  font-size: 45px;
+  font-weight: bold;
+  font-family: PixelMplus10-Regular;
 }
 
-
-.header{
-    position: fixed;
-    top: 30px;
-    left: 50px;
-    z-index: 10;
+/* headerの固定CSS */
+header {
+  display: none;
+  font-size: 1.5rem;  
+  position: fixed;
+  bottom: 7px;
+  right: 10px;
+  z-index: 35;
 }
 
-.wrapper4{
-    text-align: center;
+.music{
+  width: 290px;
+  height: 32px;
+}
+
+/* mainスタート */
+  body {
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+    width: 100%;
+  }
+  
+  main {
+    width: 100vw;
+  }
+
+  .body{
+    background-color: black;
+  }
+
+   /* 点滅 */
+   .blinking{
+    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
+      -moz-animation:blink 1.5s ease-in-out infinite alternate;
+      animation:blink 3s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes blink{
+      0% {opacity:0;}
+      100% {opacity:1;}
+  }
+  @-moz-keyframes blink{
+      0% {opacity:0;}
+      100% {opacity:1;}
+  }
+  @keyframes blink{
+      0% {opacity:0;}
+      100% {opacity:1;}
+  }
+  
+
+  /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
+  }
+
+  /* .title p:first-child{
+    text-align: center;
+  } */
+
+  .title p{
+    text-align: center;
+  }
+
+  /* .title > p:first-child{
+    margin-bottom: 80px;
+  } */
+  .title > p:nth-child(1){
+    margin-bottom: 97px;
+  }
+
+  .btn1{
+    width: 130px;
+    height: 130px;
+  }
+
+  .caution{
+    width: 440px;
+    height: 24.2px;
+  }
+
+  .wrapper1.close{
+    display: none;
+  }
+
+
+  /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: none;
+  }
+
+  .movie{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .controller{
+    position: fixed !important;
+    right: 64px;
+    bottom: 48px;
+    z-index: 2000;
+  
+    display: flex;
+    text-align: center;
+  }
+
+  #icon{
+    width: 33px;
+    height: 33px;
+  }
+
+  .btn_icon{
+    border-radius: 50%;
+    border-width: 0.5px;
+    padding: 4px 8px;
+    margin: 2px 4px;
+  }
+
+  .wrapper2.open{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper3 {
+    height: 100vh;
+    width: 100%;
+    /* background-color: rgba(255, 252, 252, 0.822); */
+    
+    /* 位置調整 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    /* 非表示 */
+    opacity: 0;
+  }
+
+  .wra3_container{
+    height: 100%;
+    width: 100%;
+    /* 位置調整 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    /* 非表示 */
+    display: none;
+  }
+
+
+  .box{
+    /* display: none; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .btn2{
+    width: 85px;
+    height: 85px;
+  }
+
+  .box > span{
+    font-size: 49px;
+    border-bottom: solid 2px;
+  }
+
+  /* アニメーション */
+  .wra3_container.open{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .box.open{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }  
+
+  .wrapper3.open{
+    opacity: 1;
+    animation-name:fadeInAnime;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+  }
+  @keyframes fadeInAnime{
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+  .wrapper3.open.close{
+    display: none;
+  }
+
+  /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper4{
+    display: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  /**
+   *  height: 3,350px
+   *  width: 1,000px
+   *  が現状の最大サイズ
+   *  
+   *  width < 1000px は伸縮する。
+   */
+  .wrapper4 iframe {
+    height: 3350px;
+    width: 100%;
+  }
+
+  .wrapper4.open{
     display: flex;
     justify-content: center;
   }
 
-  .wrapper4 iframe {
+  .border1{
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3650px;
+    top: 940px;
+    z-index: 30;
+
+    border: solid 5px red;
+    width: 51vw;
+    height: 80px;
   }
 
-  @media screen and (max-width:767px){
-    .wrapper4 iframe {
+  .border2{
+    position: absolute;
+    top: 1650px;
+    z-index: 30;
+
+    border: solid 5px blue;
+    width: 51vw;
+    height: 80pxx;
+  }
+
+  .border3{
+    position: absolute;
+    top: 1910px;
+    z-index: 30;
+
+    border: solid 5px green;
+    width: 51vw;
+    height: 80px;
+  }
+
+  /*
+   * --- 以下、画像アニメーション関連
+   */
+  .gif1,.gif2{
+    width:50px;
+    height: 80px;
+    text-align: left;
+  }
+
+  .image-container {
+    position: relative;
+  }
+  
+  .image1, .image2 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 1900px;
+    z-index: 40;
+  }
+
+  .image1 {
+    opacity: 1;
+  }
+  
+  .image2 {
+    opacity: 0;
+  }
+
+  /* アニメーション処理 */
+  @keyframes slideshow {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1
+    }
+    100% {
+      opacity: 0;
     }
   }
+  
+  /* 以下、ホバー時にアニメーション処理 */
+  /* 画像1のアニメーション通常再生 */
+  .border1:hover .image1,
+  .border2:hover .image1,
+  .border3:hover .image1 {
+    animation-name: slideshow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+  }
+
+  /* 画像2のアニメーション逆再生 */
+  .border1:hover .image2,
+  .border2:hover .image2,
+  .border3:hover .image2 {
+    animation-name: slideshow;
+    animation-duration: 2s;
+    animation-direction: reverse;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+  }
+
