@@ -4,6 +4,7 @@
 // クリックすると
 // ①wra1が消える
 // ②wra2の中の動画がスタート
+// コントローラー出現
 const wra1 = document.querySelector('.wrapper1');
 const title = document.querySelector('.title');
 const movie = document.querySelector('.movie');
@@ -11,6 +12,7 @@ const movie = document.querySelector('.movie');
 // ①,②
 title.addEventListener( 'click', function () {
     wra1.classList.add('close');
+    controller.classList.add('open');
     movie.play()
 } );
 
@@ -23,6 +25,7 @@ title.addEventListener( 'click', function () {
 const wra3 = document.querySelector('.wrapper3');
 const wra3_con = document.querySelector('.wra3_container');
 const box = document.querySelector('.box');
+const controller = document.querySelector('.controller');
 
 // ③、④、⑤
 movie.addEventListener( 'ended', () => {
@@ -61,6 +64,7 @@ volume_slider.addEventListener("input", (e) => {
 // ⑦wra3が消える
 // ⑦wra3コンテナが消える
 // ⑧ボックスが消える
+// コントローラーが消える
 // ⑨音楽スタート
 // ⑩wra4が出現
 const wra2 = document.querySelector('.wrapper2');
@@ -74,6 +78,7 @@ wra3_con.addEventListener( 'click', function(){
     wra3.classList.add('close');
     wra3_con.classList.remove('open');
     box.classList.remove('open');
+    controller.classList.remove('open');
     musicContainer.style.display = 'block';
     music.play();
     wra4.classList.add('open');

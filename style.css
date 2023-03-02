@@ -9,9 +9,8 @@
   font-family: PixelMplus10-Regular;
 }
 
-/* headerの固定CSS */
-header {
-  display: none;
+/* header部分 */
+.header{
   font-size: 1.5rem;  
   position: fixed;
   bottom: 7px;
@@ -23,6 +22,21 @@ header {
   width: 290px;
   height: 32px;
 }
+
+.controller{
+  position: fixed !important;
+  right: 73px;
+  bottom: 68px;
+  z-index: 1000;
+
+  display: none;
+}
+
+.controller.open{
+  display: flex;
+  text-align: center;
+}
+
 
 /* mainスタート */
   body {
@@ -115,23 +129,13 @@ header {
   }
 
   .movie{
-    position: absolute;
+    /* position: absolute;
     top: 0px;
-    left: 0px;
+    left: 0px; */
 
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .controller{
-    position: fixed !important;
-    right: 64px;
-    bottom: 48px;
-    z-index: 2000;
-  
-    display: flex;
-    text-align: center;
   }
 
   #icon{
@@ -142,7 +146,7 @@ header {
   .btn_icon{
     border-radius: 50%;
     border-width: 0.5px;
-    padding: 4px 8px;
+    padding: 2px 6px;
     margin: 2px 4px;
   }
 
