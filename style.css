@@ -9,9 +9,8 @@
   font-family: PixelMplus10-Regular;
 }
 
-/* headerの固定CSS */
-header {
-  display: none;
+/* header部分 */
+.header{
   font-size: 1.5rem;  
   position: fixed;
   bottom: 7px;
@@ -20,9 +19,24 @@ header {
 }
 
 .music{
-  width: 290px;
+  width: 206px;
   height: 32px;
 }
+
+.controller{
+  position: fixed !important;
+  right: 17px;
+  bottom: 60px;
+  z-index: 1000;
+
+  display: none;
+}
+
+.controller.open{
+  display: flex;
+  text-align: center;
+}
+
 
 /* mainスタート */
   body {
@@ -103,52 +117,41 @@ header {
 
   /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper2{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
-
-    display: none;
   }
 
   .movie{
-    position: absolute;
+    /* position: absolute;
     top: 0px;
-    left: 0px;
+    left: 0px; */
 
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .controller{
-    position: fixed !important;
-    right: 64px;
-    bottom: 48px;
-    z-index: 2000;
-  
-    display: flex;
-    text-align: center;
-  }
-
   #icon{
-    width: 33px;
-    height: 33px;
+    width: 24px;
+    height: 26px;
   }
 
   .btn_icon{
     border-radius: 50%;
     border-width: 0.5px;
-    padding: 4px 8px;
+    /* padding: 2px 6px; */
     margin: 2px 4px;
   }
 
-  .wrapper2.open{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .wrapper2.close{
+    display: none;
   }
   
 
@@ -181,10 +184,11 @@ header {
 
 
   .box{
-    /* display: none; */
+    position: fixed;
+    bottom: 7px;
+
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
   }
 
   .btn2{
@@ -256,32 +260,26 @@ header {
 
   .border1{
     position: absolute;
-    top: 940px;
     z-index: 30;
-
-    border: solid 5px red;
+    /* border: solid 5px red; */
     width: 51vw;
-    height: 80px;
+    height: 200px;
   }
 
   .border2{
     position: absolute;
-    top: 1650px;
     z-index: 30;
-
-    border: solid 5px blue;
+    /* border: solid 5px blue; */
     width: 51vw;
-    height: 80pxx;
+    height: 200px;
   }
 
   .border3{
     position: absolute;
-    top: 1910px;
     z-index: 30;
-
-    border: solid 5px green;
+    /* border: solid 5px green; */
     width: 51vw;
-    height: 80px;
+    height: 200px;
   }
 
   /*
@@ -346,4 +344,3 @@ header {
     animation-iteration-count: infinite;
     animation-timing-function: step-end;
   }
-
