@@ -255,32 +255,26 @@ header {
 
   .border1{
     position: absolute;
-    top: 940px;
     z-index: 30;
-
-    border: solid 5px red;
-    width: 90vw;
-    height: 87px;
+    /* border: solid 5px red; */
+    width: 51vw;
+    height: 200px;
   }
 
   .border2{
     position: absolute;
-    top: 1650px;
     z-index: 30;
-
-    border: solid 5px blue;
-    width: 90vw;
-    height: 86px;
+    /* border: solid 5px blue; */
+    width: 51vw;
+    height: 200px;
   }
 
   .border3{
     position: absolute;
-    top: 1910px;
     z-index: 30;
-
-    border: solid 5px green;
-    width: 90vw;
-    height: 86px;
+    /* border: solid 5px green; */
+    width: 51vw;
+    height: 200px;
   }
 
   /*
@@ -345,4 +339,3 @@ header {
     animation-iteration-count: infinite;
     animation-timing-function: step-end;
   }
-

@@ -1,6 +1,5 @@
 
 
-
 /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 // クリックすると
 // ①wra1が消える
@@ -119,9 +118,9 @@ function setTopFunc(selector) {
 // 1000 x 3350 を基準に座標を決定。
 const standardHeightVhsFor800x800 = {
     iframe: [3350, adjustSize, setWidthHeightFunc('.wrapper4 iframe'), 2.5],
-    border1: [940, adjustSize, setTopFunc('.border1'), 0.8],
-    border2: [1650, adjustSize, setTopFunc('.border2'), 1.4],
-    border3: [1910, adjustSize, setTopFunc('.border3'), 1.5],
+    border1: [803, adjustSize, setTopFunc('.border1'), 0.8],
+    border2: [1455, adjustSize, setTopFunc('.border2'), 1.4],
+    border3: [1691, adjustSize, setTopFunc('.border3'), 1.5],
 };
 
 /**
@@ -176,10 +175,10 @@ function switchPageForTime() {
     
     // Key=表示開始時刻(Hour)
     const toHourUrls = [
-        [0, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
-        [6, 'https://neibe-stripe.com/WordPress/hfcontent/morning/'],
-        [12, 'https://neibe-stripe.com/WordPress/hfcontent/afternoon/'],
-        [18, 'https://neibe-stripe.com/WordPress/hfcontent/night/'],
+        [0, 'https://neibe-stripe.com/cms/hfcontent/night/'],
+        [6, 'https://neibe-stripe.com/cms/hfcontent/morning/'],
+        [12, 'https://neibe-stripe.com/cms/hfcontent/afternoon/'],
+        [18, 'https://neibe-stripe.com/cms/hfcontent/night/'],
     ]
 
     const hours = new Date().getHours();
