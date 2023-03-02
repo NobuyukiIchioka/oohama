@@ -118,9 +118,9 @@ function setTopFunc(selector) {
 // 1000 x 3350 を基準に座標を決定。
 const standardHeightVhsFor800x800 = {
     iframe: [3350, adjustSize, setWidthHeightFunc('.wrapper4 iframe'), 2.5],
-    border1: [803, adjustSize, setTopFunc('.border1'), 0.8],
-    border2: [1455, adjustSize, setTopFunc('.border2'), 1.4],
-    border3: [1691, adjustSize, setTopFunc('.border3'), 1.5],
+    border1: [802, adjustSize, setTopFunc('.border1'), 0.8],
+    border2: [1454, adjustSize, setTopFunc('.border2'), 1.4],
+    border3: [1690, adjustSize, setTopFunc('.border3'), 1.5],
 };
 
 /**
