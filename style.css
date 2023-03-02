@@ -184,10 +184,11 @@
 
 
   .box{
-    /* display: none; */
+    position: fixed;
+    bottom: 7px;
+
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
   }
 
   .btn2{
