@@ -13,20 +13,26 @@
 .header{
   font-size: 1.5rem;  
   position: fixed;
-  bottom: 7px;
-  right: 10px;
+  bottom: 15px;
+  right: 29px;
   z-index: 35;
 }
 
 .music{
-  width: 290px;
-  height: 32px;
+  width: 148px;
+  height: 33px;
+}
+
+.music:hover {
+  width: 292px;
+  height: 33px;
+  transition: 1.2s;
 }
 
 .controller{
   position: fixed !important;
-  right: 73px;
-  bottom: 68px;
+  right: 33px;
+  bottom: 73px;
   z-index: 1000;
 
   display: none;
@@ -35,6 +41,15 @@
 .controller.open{
   display: flex;
   text-align: center;
+}
+
+#volume{
+  width: 71px;
+}
+
+#volume:hover{
+  width: 129px;
+  transition: 0.8s;
 }
 
 
@@ -85,9 +100,6 @@
     z-index: 30;
   }
 
-  /* .title p:first-child{
-    text-align: center;
-  } */
 
   .title p{
     text-align: center;
@@ -139,15 +151,14 @@
   }
 
   #icon{
-    width: 33px;
-    height: 33px;
+    width: 24px;
+    height: 26px;
   }
 
   .btn_icon{
     border-radius: 50%;
     border-width: 0.5px;
-    padding: 2px 6px;
-    margin: 2px 4px;
+    padding: 4px 8px;
   }
 
   .wrapper2.close{
@@ -185,7 +196,7 @@
 
   .box{
     position: fixed;
-    bottom: 7px;
+    bottom: 6px;
 
     display: flex;
     align-items: center;
@@ -211,7 +222,6 @@
   .box.open{
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
   }  
 
   .wrapper3.open{
@@ -262,7 +272,7 @@
     position: absolute;
     z-index: 30;
     /* border: solid 5px red; */
-    width: 51vw;
+    width: 47vw;
     height: 200px;
   }
 
@@ -270,7 +280,7 @@
     position: absolute;
     z-index: 30;
     /* border: solid 5px blue; */
-    width: 51vw;
+    width: 47vw;
     height: 200px;
   }
 
@@ -278,7 +288,7 @@
     position: absolute;
     z-index: 30;
     /* border: solid 5px green; */
-    width: 51vw;
+    width: 47vw;
     height: 200px;
   }
 
