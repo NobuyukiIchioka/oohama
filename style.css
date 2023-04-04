@@ -18,17 +18,15 @@
   z-index: 35;
 }
 
-.music{
-  width: 148px;
-  height: 33px;
+/* 音量リモコン */
+.sound_controller{
 }
 
-.music:hover {
-  width: 292px;
-  height: 33px;
-  transition: 1.2s;
+#play, #music{
+  width: 1rem;
 }
 
+/* ムービーリモコン */
 .controller{
   position: fixed !important;
   right: 33px;
@@ -230,56 +228,21 @@
 
   /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
   .wrapper4{
-    display: none;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  /**
-   *  height: 3,350px
-   *  width: 1,000px
-   *  が現状の最大サイズ
-   *  
-   *  width < 1000px は伸縮する。
-   */
   .wrapper4 iframe {
     height: 3350px;
     width: 100%;
   }
 
-  .wrapper4.open{
-    display: flex;
-    justify-content: center;
-  }
-
-  .border1{
-    position: absolute;
-    z-index: 30;
-    /* border: solid 5px red; */
-    width: 47vw;
-    height: 200px;
-  }
-
-  .border2{
-    position: absolute;
-    z-index: 30;
-    /* border: solid 5px blue; */
-    width: 47vw;
-    height: 200px;
-  }
-
-  .border3{
-    position: absolute;
-    z-index: 30;
-    /* border: solid 5px green; */
-    width: 47vw;
-    height: 200px;
-  }
-
   /*
    * --- 以下、画像アニメーション関連
    */
-  .gif1,.gif2{
+  /* .gif1,.gif2{
     width:50px;
     height: 80px;
     text-align: left;
@@ -302,7 +265,7 @@
   
   .image2 {
     opacity: 0;
-  }
+  } */
 
   /* アニメーション処理 */
   @keyframes slideshow {
