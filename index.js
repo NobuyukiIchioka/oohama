@@ -52,6 +52,22 @@ volume_slider.addEventListener("input", (e) => {
   });
 
 
+
+//   音楽リモコン
+// const audio = document.querySelector(".music");
+// const audioIcon = document.getElementById("audioIcon");
+
+//     function toggleAudio() {
+//         if (audio.paused) {
+//             audio.play();
+//             audioIcon.src = "/img/play.svg";
+//         } else {
+//             audio.pause();
+//             audioIcon.src = "./img/pause.svg";
+//         }
+//     }
+
+
 /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 // wra3コンテナを押すと
 // ⑥wra2が消える
@@ -192,3 +208,31 @@ function switchPageForTime() {
     iframePage.src = url;
 }
 switchPageForTime();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* *******************************************/
+/* sample-code */
+const audio2 = document.getElementById("myAudio");
+const audioIcon = document.getElementById("audioIcon");
+
+function toggleAudio() {
+    if (audio2.paused) {
+        audio2.play();
+        audioIcon.src = "./img/pause.svg";
+    } else {
+        audio2.pause();
+        audioIcon.src = "./img/play.svg";
+    }
+}

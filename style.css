@@ -11,20 +11,22 @@
 
 /* header部分 */
 .header{
-  font-size: 1.5rem;  
-  position: fixed;
-  bottom: 15px;
-  right: 29px;
-  z-index: 35;
+  position: fixed !important;
+  right: 66px;
+  bottom: 52px;
+  z-index: 1000;
 }
 
 /* 音量リモコン */
 .sound_controller{
+  background-color: #666;
 }
 
 #play, #music{
   width: 1rem;
 }
+
+
 
 /* ムービーリモコン */
 .controller{
@@ -232,6 +234,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: skyblue;
+    opacity: 0.5;
   }
 
   .wrapper4 iframe {
@@ -301,3 +305,13 @@
     animation-iteration-count: infinite;
     animation-timing-function: step-end;
   }
+
+
+
+
+/* *******************************************/
+/* sample-code */
+
+#audioIcon{
+  width: 5rem;
+}
