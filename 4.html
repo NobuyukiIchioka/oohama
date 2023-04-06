@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>大浜鍼灸整骨院HP</title>
+      <link rel="stylesheet" href="reset.css" >
+      <!-- <link rel="stylesheet" href="destyle.css" > -->
+      <link rel="stylesheet" href="style.css" >
+  </head>
+  <body>
+    
+    <main>
+        <audio src="./music/eyes_on_me.mp3" autoplay id="myAudio"></audio>
+
+        <button onclick="toggleAudio()">
+          <img id="audioIcon" src="./img/play.svg">
+        </button>
+        <button onclick="toggleMute()">
+          <img id="muteIcon" src="./img/volume-high.svg">
+        </button>
+
+    </main>
+
+    <script>
+        const audio = document.getElementById("myAudio");
+        const audioIcon = document.getElementById("audioIcon");
+        const muteIcon = document.getElementById("muteIcon");
+    
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                audioIcon.src = "./img/play.svg";
+            } else {
+                audio.pause();
+                audioIcon.src = "./img/pause.svg";
+            }
+        }
+
+        function toggleMute() {
+        if (audio.muted) {
+            audio.muted = false;
+            muteIcon.src = "./img/volume-high.svg";
+        } else {
+            audio.muted = true;
+            muteIcon.src = "./img/volume-mute.svg";
+        }
+    }
+
+    </script>
+    
+
+    <!-- JavaScript操作 -->
+    <!-- <script src="index.js"></script> -->
+
+  </body>
+</html>

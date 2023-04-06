@@ -235,3 +235,15 @@
     height: 3350px;
     width: 100%;
   }
+
+
+/* **************************************************
+  sample-code */
+
+  #audioIcon{
+    width: 3rem;
+  }
+
+  #muteIcon{
+    width: 5rem;
+  }
