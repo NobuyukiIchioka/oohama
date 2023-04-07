@@ -24,37 +24,6 @@
 
     // 音楽コントローラー
     // 音楽、再生画像、音量画像、ボリュームを取得
-    const audio = document.querySelector(".music");
-    const play = document.getElementById("play");
-    const icon2 = document.getElementById("icon2");
-
-    
-    // play.onclick = function() {
-    //     if(audio.paused){
-    //         audio.play();
-    //         play.src = "./img/pause.svg";
-    //     } else {
-    //         audio.pause();
-    //         play.src = "./img/play.svg";
-    //     }
-    // }
-
-    // play.addEventListener("click", togglePlay);
-
-
-
-    // function togglePlay() {
-    //     if (isPlaying) {
-    //       audio.pause();
-    //       play.querySelector('img').src = "./img/play.svg";
-    //     } else {
-    //       audio.play();
-    //       play.querySelector('img').src = "./img/pause.svg";
-    //     }
-    //     isPlaying = !isPlaying;
-    //   }
-      
-    //   play.addEventListener("click", togglePlay);
 
 
 

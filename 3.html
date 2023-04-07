@@ -5,15 +5,15 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>大浜鍼灸整骨院HP</title>
-      <!-- <link rel="stylesheet" href="reset.css" > -->
+      <link rel="stylesheet" href="reset.css" >
       <link rel="stylesheet" href="style.css" >
   </head>
   <body>
     <header class="header">
         <div  class="sound_controller">
-            <audio loop autoplay src="./music/eyes_on_me.mp3" class="music"></audio>
-            <span><img src="./img/play.svg" id="play"></span>
-            <span><img src="./img/volume-high.svg" id="icon2"></span>
+            <audio loop autoplay src="./music/eyes_on_me.mp3" id="music"></audio>
+            <button onclick="toggleAudio()"><img src="./img/play.svg" id="play"></button>
+            <button  onclick="toggleMute()"><img src="./img/volume-high.svg" id="icon2"></button>
         </div>    
     </header>
     
@@ -27,9 +27,36 @@
       </div>
     </main>
 
+    <script>
+      const music = document.getElementById("music");
+      const play = document.getElementById("play");
+      const icon2 = document.getElementById("icon2");
+  
+      function toggleAudio() {
+          if (music.paused) {
+              music.play();
+              play.src = "./img/play.svg";
+          } else {
+              music.pause();
+              play.src = "./img/pause.svg";
+          }
+      }
+
+      function toggleMute() {
+      if (music.muted) {
+          music.muted = false;
+          icon2.src = "./img/volume-high.svg";
+      } else {
+          music.muted = true;
+          icon2.src = "./img/volume-mute.svg";
+      }
+    }
+
+  </script>
+
 
     <!-- JavaScript操作 -->
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
 
   </body>
 </html>
