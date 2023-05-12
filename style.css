@@ -11,40 +11,23 @@
 
 /* header部分 */
 .header{
-  font-size: 1.5rem;  
   position: fixed;
   bottom: 15px;
   right: 29px;
   z-index: 35;
 }
 
-.music{
-  width: 148px;
-  height: 33px;
-}
 
-.music:hover {
-  width: 292px;
-  height: 33px;
-  transition: 1.2s;
-}
-
+/* 動画リモコン */
 .controller{
   position: fixed !important;
-  right: 33px;
-  bottom: 73px;
+  right: 45px;
+  bottom: 28px;
   z-index: 1000;
-
-  display: none;
-}
-
-.controller.open{
-  display: flex;
-  text-align: center;
 }
 
 #volume{
-  width: 71px;
+  width: 74px;
 }
 
 #volume:hover{
@@ -52,15 +35,52 @@
   transition: 0.8s;
 }
 
+#icon{
+  width: 24px;
+  height: 26px;
+}
+
+.btn_icon{
+  border-radius: 50%;
+  border-width: 0.5px;
+  padding: 4px 8px;
+}
+
+
+/* 音楽リモコン */
+.sound_controller{
+  position: fixed !important;
+  right: 45px;
+  bottom: 28px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+
+}
+
+#play{
+  width: 3rem;
+
+  margin-right: 21px;
+}
+
+#icon2{
+  width: 1.7rem;
+}
+
+
+
+
 
 /* mainスタート */
   body {
     position: relative;
-    width: 100%;
   }
   
   main {
-    width: 100vw;
+    width: 100%;
+    height: 100vh;
   }
 
   .body{
@@ -86,271 +106,136 @@
       100% {opacity:1;}
   }
   
+/* indexーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.wrapper1 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper1 {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 30;
-  }
+.title p{
+  text-align: center;
+}
+
+.title > p:nth-child(1){
+  margin-bottom: 97px;
+}
+
+.btn1{
+  width: 130px;
+  height: 130px;
+}
+
+.caution{
+  width: 440px;
+  height: 24.2px;
+}
+
+ /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+ /* MOVIE  */
+ .wrapper2{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.movie{
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
 
 
-  .title p{
-    text-align: center;
-  }
-
-  /* .title > p:first-child{
-    margin-bottom: 80px;
-  } */
-  .title > p:nth-child(1){
-    margin-bottom: 97px;
-  }
-
-  .btn1{
-    width: 130px;
-    height: 130px;
-  }
-
-  .caution{
-    width: 440px;
-    height: 24.2px;
-  }
-
-  .wrapper1.close{
-    display: none;
-  }
-
-
-  /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper2{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-
-  .movie{
-    /* position: absolute;
-    top: 0px;
-    left: 0px; */
-
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  #icon{
-    width: 24px;
-    height: 26px;
-  }
-
-  .btn_icon{
-    border-radius: 50%;
-    border-width: 0.5px;
-    padding: 4px 8px;
-  }
-
-  .wrapper2.close{
-    display: none;
-  }
+/* TEXT  */
+.wrapper3 {
+  height: 100vh;
+  width: 100%;
   
+  /* 位置調整 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  /* 非表示 */
+  opacity: 0;
+}
 
-  /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper3 {
-    height: 100vh;
-    width: 100%;
-    /* background-color: rgba(255, 252, 252, 0.822); */
-    
-    /* 位置調整 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    /* 非表示 */
+.wra3_container{
+  height: 100%;
+  width: 100%;
+  /* 位置調整 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  /* 非表示 */
+  display: none;
+}
+
+.box{
+  position: fixed;
+  bottom: 6px;
+  /* 非表示 */
+  display: none;
+}
+
+.btn2{
+  width: 85px;
+  height: 85px;
+}
+
+.box > span{
+  font-size: 49px;
+  border-bottom: solid 2px;
+}
+
+/* アニメーション */
+.wra3_container.open{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.box.open{
+  display: flex;
+  align-items: center;
+}  
+
+.wrapper3.open{
+  opacity: 1;
+  animation-name:fadeInAnime;
+  animation-duration:3s;
+  animation-fill-mode:forwards;
+}
+@keyframes fadeInAnime{
+  from {
     opacity: 0;
   }
 
-  .wra3_container{
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+  /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+  .wrapper4{
     height: 100%;
     width: 100%;
-    /* 位置調整 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    /* 非表示 */
-    display: none;
-  }
-
-
-  .box{
-    position: fixed;
-    bottom: 6px;
-
-    display: flex;
-    align-items: center;
-  }
-
-  .btn2{
-    width: 85px;
-    height: 85px;
-  }
-
-  .box > span{
-    font-size: 49px;
-    border-bottom: solid 2px;
-  }
-
-  /* アニメーション */
-  .wra3_container.open{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
   }
 
-  .box.open{
-    display: flex;
-    align-items: center;
-  }  
-
-  .wrapper3.open{
-    opacity: 1;
-    animation-name:fadeInAnime;
-    animation-duration:3s;
-    animation-fill-mode:forwards;
-  }
-  @keyframes fadeInAnime{
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-
-  .wrapper3.open.close{
-    display: none;
-  }
-
-  /* 4thーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-  .wrapper4{
-    display: none;
-    height: 100%;
-    width: 100%;
-  }
-
-  /**
-   *  height: 3,350px
-   *  width: 1,000px
-   *  が現状の最大サイズ
-   *  
-   *  width < 1000px は伸縮する。
-   */
   .wrapper4 iframe {
     height: 3350px;
     width: 100%;
-  }
-
-  .wrapper4.open{
-    display: flex;
-    justify-content: center;
-  }
-
-  .border1{
-    position: absolute;
-    z-index: 30;
-    /* border: solid 5px red; */
-    width: 47vw;
-    height: 200px;
-  }
-
-  .border2{
-    position: absolute;
-    z-index: 30;
-    /* border: solid 5px blue; */
-    width: 47vw;
-    height: 200px;
-  }
-
-  .border3{
-    position: absolute;
-    z-index: 30;
-    /* border: solid 5px green; */
-    width: 47vw;
-    height: 200px;
-  }
-
-  /*
-   * --- 以下、画像アニメーション関連
-   */
-  .gif1,.gif2{
-    width:50px;
-    height: 80px;
-    text-align: left;
-  }
-
-  .image-container {
-    position: relative;
-  }
-  
-  .image1, .image2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 40;
-  }
-
-  .image1 {
-    opacity: 1;
-  }
-  
-  .image2 {
-    opacity: 0;
-  }
-
-  /* アニメーション処理 */
-  @keyframes slideshow {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  /* 以下、ホバー時にアニメーション処理 */
-  /* 画像1のアニメーション通常再生 */
-  .border1:hover .image1,
-  .border2:hover .image1,
-  .border3:hover .image1 {
-    animation-name: slideshow;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: step-end;
-  }
-
-  /* 画像2のアニメーション逆再生 */
-  .border1:hover .image2,
-  .border2:hover .image2,
-  .border3:hover .image2 {
-    animation-name: slideshow;
-    animation-duration: 2s;
-    animation-direction: reverse;
-    animation-iteration-count: infinite;
-    animation-timing-function: step-end;
   }

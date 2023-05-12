@@ -24,14 +24,29 @@
 
     // 音楽コントローラー
     // 音楽、再生画像、音量画像、ボリュームを取得
+//     const music = document.getElementById("music");
+//     const play = document.getElementById("play");
+//     const icon2 = document.getElementById("icon2");
 
+//     function toggleAudio() {
+//         if (music.paused) {
+//             music.play();
+//             play.src = "./img/play.svg";
+//         } else {
+//             music.pause();
+//             play.src = "./img/pause.svg";
+//         }
+//     }
 
-
-
-    
-
-
-
+//     function toggleMute() {
+//     if (music.muted) {
+//         music.muted = false;
+//         icon2.src = "./img/volume-high.svg";
+//     } else {
+//         music.muted = true;
+//         icon2.src = "./img/volume-mute.svg";
+//     }
+//   }
 
 
 
@@ -53,7 +68,7 @@ movie.addEventListener( 'ended', () => {
   } )
 
 wra3_con.addEventListener( 'click', function(){
-    window.location.href = "./3.html"
+    window.location.href = "./3rd.html"
 } ); 
 
 
