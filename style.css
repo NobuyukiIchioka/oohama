@@ -153,6 +153,10 @@
   object-fit: cover;
 }
 
+.movie_sp{
+  display: none;
+}
+
 
 /* TEXT  */
 .wrapper3 {
