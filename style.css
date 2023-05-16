@@ -133,6 +133,10 @@
   height: 24.2px;
 }
 
+.caution_sp{
+  display: none;
+}
+
  /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
  /* MOVIE  */
  .wrapper2{
