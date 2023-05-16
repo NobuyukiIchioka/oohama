@@ -1,5 +1,5 @@
-@media screen and (max-width: 820px) {
-/* 820px以下に適用されるCSS（iPodAirのブレイクポイント） */
+@media screen and (max-width: 825px) {
+/* 820px以下に適用されるCSS（820pxがiPodAirのブレイクポイント） */
 /* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .caution{
  display: none;
