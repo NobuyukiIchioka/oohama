@@ -1,41 +1,37 @@
 // header
     // 動画コントローラー
     // ビデオ、アイコン画像、ボリュームを取得
-    const video = document.querySelector("video");
+    const videos = document.querySelectorAll("video");
     const mute_icon = document.getElementById("icon");
     const volume_slider = document.getElementById("volume");
     
-    // ボリュームの初期設定
-    video.volume = volume_slider.value;
+    // ボリュームの初期設定、PCとSPの両方のvideoタグの情報を認識できる設定
+    videos.forEach(video => {
+        video.volume = volume_slider.value;
+    });
+
     // 消音ボタンの画像を切り替え
     mute_icon.onclick = function() {
-        if(video.muted){
-            video.muted = false;
-            icon.src = "./img/volume-high.svg";
-        }else{
-            video.muted = true;
-            icon.src = "./img/volume-mute.svg";
-        }
+        videos.forEach(video => {
+            if(video.muted){
+                video.muted = false;
+                icon.src = "./img/volume-high.svg";
+            }else{
+                video.muted = true;
+                icon.src = "./img/volume-mute.svg";
+            }
+        });
     }
+
     // 音量調整スライダーを操作したとき
     volume_slider.addEventListener("input", (e) => {
-        video.volume = volume_slider.value;
-      });
+        videos.forEach(video => {
+            video.volume = volume_slider.value;
+        });
+    });
+ 
 
-    // 音楽コントローラー
-    // 音楽、再生画像、音量画像、ボリュームを取得
-
-
-
-
-    
-
-
-
-
-
-
-/* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 2nd pageーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 // 動画再生終了後
 // ③wra3が出現
 // ④wra3コンテナが出現
@@ -50,10 +46,22 @@ movie.addEventListener( 'ended', () => {
     wra3.classList.add('open');
     wra3_con.classList.add('open');
     box.classList.add('open');
+    // 動画が終了したらsessionStorageに値をセット
+    sessionStorage.setItem("playMusic", "true");
   } )
 
 wra3_con.addEventListener( 'click', function(){
-    window.location.href = "./3.html"
+    window.location.href = "./3rd.html"
 } ); 
 
 
+// 2nd.html（2ページ目）の読み込み時にセッションストレージをチェックし、動画を再生
+document.addEventListener("DOMContentLoaded", function() {
+    if (sessionStorage.getItem("playVideo") === "true") {
+        var video = document.querySelector("video");
+        video.play();
+
+        // セッションストレージの項目を削除（任意）
+        sessionStorage.removeItem("playVideo");
+    }
+});

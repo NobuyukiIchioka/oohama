@@ -1,0 +1,41 @@
+@media screen and (max-width: 825px) {
+/* 820px以下に適用されるCSS（iPodAirのブレイクポイント） */
+/* 1stーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.caution{
+ display: none;
+}
+
+.caution_sp{
+  display: block;
+  width: 276px;
+  }
+
+
+/* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+ /* MOVIE  */
+  .movie{
+    display: none;
+  }
+
+  .movie_sp{
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .box{
+    position: fixed;
+    bottom: 175px;
+  }
+
+  .btn2 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .box > span{
+    font-size: 25px;
+  }
+
+}
