@@ -10,30 +10,25 @@
       <link rel="stylesheet" href="responsive.css" >
   </head>
   <body>
-  
-    <main>
-      <!-- 1st -->
-      <div class="wrapper1 body">
-        <div class="title">
-          <a href="./2nd.html">
-            <p><img src="./img/bt1.png" alt="button" class="btn1"></p>
-            <p class="blinking"><img src="./img/caution.png" alt="" class="caution"></p>
-            <p class="blinking"><img src="./img/caution_sp.png" alt="" class="caution_sp"></p>
-          </a>
-        </div>
-      </div>
+    <button id="playButton">Start</button>
+    <video id="videoPlayer" width="80%" height="80%" controls>
+        <source id="sourcePlayer" src="./movie/opening_movie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-    </main>
-
-    <!-- JavaScript操作 -->
     <script>
-       // index.html（1ページ目）でのクリックイベントを検知し、そのイベントが発生したことをセッションストレージに保存
-        document.querySelector(".title").addEventListener("click", function() {
-            sessionStorage.setItem("playVideo", "true");
-        });
-    </script>
-    
-    <!-- <script src="index.js"></script> -->
+      document.getElementById('playButton').addEventListener('click', function() {
+       let videoPlayer = document.getElementById('videoPlayer');
 
-  </body>
+        // Check if it's a mobile device
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+              document.getElementById('sourcePlayer').setAttribute('src', './movie/opening_movie_sp.mp4');
+          }
+
+          // Play the video
+          videoPlayer.load();
+          videoPlayer.play();
+      });
+    </script>
+</body>
 </html>
