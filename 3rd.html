@@ -12,7 +12,7 @@
   <body>
     <header class="header">
         <div  class="sound_controller">
-            <audio loop autoplay src="./music/eyes_on_me.mp3" id="music"></audio>
+            <audio loop src="./music/eyes_on_me.mp3" id="music"></audio>
             <button onclick="toggleAudio()"><img src="./img/play.png" id="play"></button>
             <button  onclick="toggleMute()"><img src="./img/volume-high.png" id="icon2"></button>
         </div>    
@@ -22,28 +22,38 @@
       <div class="wrapper4">
         <iframe
           src="http://www.oohama.xyz/cms/hfcontent/test5/"
-          scrolling="yes">
+          scrolling="yse">
         </iframe>
 
       </div>
     </main>
 
+    <!-- JavaScript操作 -->
     <script>
       const music = document.getElementById("music");
       const play = document.getElementById("play");
       const icon2 = document.getElementById("icon2");
-  
-      function toggleAudio() {
-          if (music.paused) {
-              music.play();
-              play.src = "./img/play.png";
-          } else {
-              music.pause();
-              play.src = "./img/pause.png";
-          }
-      }
 
-      function toggleMute() {
+      // 3ページ目がロードされたときにsessionStorageから値を読み取る
+      window.onload = function() {
+        if (sessionStorage.getItem("playMusic") === "true") {
+          music.play();
+          // 必要に応じてsessionStorageの値をリセット
+          sessionStorage.removeItem("playMusic");
+        }
+      };
+    
+        function toggleAudio() {
+        if (music.paused) {
+            music.play();
+            play.src = "./img/pause.png";
+        } else {
+            music.pause();
+            play.src = "./img/play.png";
+        }
+    }
+
+    function toggleMute() {
       if (music.muted) {
           music.muted = false;
           icon2.src = "./img/volume-high.png";
@@ -53,11 +63,8 @@
       }
     }
 
+
   </script>
-
-
-    <!-- JavaScript操作 -->
-    <script src="./index.js"></script>
 
   </body>
 </html>

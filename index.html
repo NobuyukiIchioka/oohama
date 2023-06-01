@@ -24,9 +24,14 @@
       </div>
 
     </main>
-    
-    <!-- JavaScript操作 -->
-    <script src="index.js"></script>
 
+    <!-- JavaScript操作 -->
+    <script>
+       // index.html（1ページ目）でのクリックイベントを検知し、そのイベントが発生したことをセッションストレージに保存
+        document.querySelector(".title").addEventListener("click", function() {
+            sessionStorage.setItem("playVideo", "true");
+        });
+    </script>
+    
   </body>
 </html>
