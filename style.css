@@ -1,6 +1,78 @@
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   #videoPlayer {
       width: 100%;
       height: auto;
   }
+} */
+
+/* header================================ */
+.header{
+  position: fixed;
+  bottom: 15px;
+  right: 29px;
+  z-index: 50;
+}
+
+/* 動画リモコン */
+.controller{
+  position: fixed !important;
+  right: 45px;
+  bottom: 28px;
+  z-index: 100;
+}
+
+#volume{
+  width: 74px;
+}
+
+#volume:hover{
+  width: 129px;
+  transition: 0.8s;
+}
+
+#icon{
+  width: 24px;
+  height: 26px;
+}
+
+.btn_icon{
+  border-radius: 50%;
+  border-width: 0.5px;
+  padding: 4px 8px;
+}
+
+
+
+.start{
+  padding: 40px;
+  font-size: 30px;
+  position: fixed;
+  top: 41%;
+  right: 43%;
+  z-index: 1000;
+  border: solid 3px #d8cccc;
+}
+
+/* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+ /* MOVIE  */
+ .wrapper2{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index: 10; */
+}
+
+.movie{
+  width: 100vw;
+  height: 100vh;
+  /* object-fit: cover; */
+}
+
+.movie_sp{
+  display: none;
 }

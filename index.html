@@ -8,26 +8,39 @@
       <link rel="stylesheet" href="style.css" >
       <link rel="stylesheet" href="responsive.css" >
   </head>
-  <body>
-    <button id="playButton">Start</button>
-    <video id="videoPlayer" width="80%" height="80%" controls>
-        <source id="sourcePlayer" src="./movie/opening_movie.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+<body>
+  <header class="header">
+    <div class="controller">
+        <input type="range" id="volume" value="0.5" min="0.0" max="1.0" step="0.1">
+        <button class="btn_icon"><img src="./img/volume-high.svg" alt="sound" id="icon"></button>
+    </div>
+  </header>
+
+    <button id="playButton" class="start">ボタンを押したらSTART</button>
+    <!-- MOVIE -->
+    <div class="wrapper2 body">
+      <video src="./movie/opening_movie.mp4" class="movie"></video>
+      <video src="./movie/opening_movie_sp.mp4" class="movie_sp"></video>
+    </div>
 
     <script>
       document.getElementById('playButton').addEventListener('click', function() {
-       let videoPlayer = document.getElementById('videoPlayer');
-
-        // Check if it's a mobile device
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-              document.getElementById('sourcePlayer').setAttribute('src', './movie/opening_movie_sp.mp4');
-          }
-
-          // Play the video
-          videoPlayer.load();
-          videoPlayer.play();
+        let videoDesktop = document.querySelector(".movie");
+        let videoMobile = document.querySelector(".movie_sp");
+    
+        // This matches your media query
+        const isMobile = window.matchMedia("(max-width: 825px)");
+    
+        // check if it's a mobile screen
+        if (isMobile.matches) {
+          videoMobile.load();
+          videoMobile.play();
+        } else {
+          videoDesktop.load();
+          videoDesktop.play();
+        }
       });
     </script>
+    
 </body>
 </html>
