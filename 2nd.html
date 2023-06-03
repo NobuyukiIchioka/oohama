@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>大浜鍼灸整骨院</title>
+      <!-- <link rel="stylesheet" href="reset.css" > -->
+      <link rel="stylesheet" href="style.css" >
+      <link rel="stylesheet" href="responsive.css" >
+  </head>
+  <body>
+    <header class="header">
+        <div class="controller">
+            <input type="range" id="volume" value="0.5" min="0.0" max="1.0" step="0.1">
+            <button class="btn_icon"><img src="./img/volume-high.svg" alt="sound" id="icon"></button>
+        </div>
+    </header>
+    
+    <main>
+      <!-- MOVIE -->
+      <div class="wrapper2 body">
+        <video src="./movie/opening_movie.mp4" class="movie"></video>
+        <video src="./movie/opening_movie_sp.mp4" class="movie_sp"></video>
+      </div>
+
+      <!-- TEXT -->
+      <div class="wrapper3">
+        <div class="wra3_container">
+          <div class="box">
+            <img src="./img/bt2.png" alt="button" class="btn2">
+            <span class="font blinking">Press any button. </span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  <!-- JavaScript操作 -->
+  <script>
+    // header=======================
+    // 動画コントローラー
+    const videos = document.querySelectorAll("video");
+    const mute_icon = document.getElementById("icon");
+    const volume_slider = document.getElementById("volume");
+    
+    // ボリュームの初期設定、PCとSPの両方のvideoタグの情報を認識できる設定
+    videos.forEach(video => {
+        video.volume = volume_slider.value;
+    });
+
+    // 消音ボタンの画像を切り替え
+    mute_icon.onclick = function() {
+        videos.forEach(video => {
+            if(video.muted){
+                video.muted = false;
+                icon.src = "./img/volume-high.svg";
+            }else{
+                video.muted = true;
+                icon.src = "./img/volume-mute.svg";
+            }
+        });
+    }
+
+    // 音量調整スライダーを操作したとき
+    volume_slider.addEventListener("input", (e) => {
+        videos.forEach(video => {
+            video.volume = volume_slider.value;
+        });
+    });
+ 
+
+    /* main=============================== */
+    // MOVIE
+    let videoDesktop = document.querySelector(".movie");
+    let videoMobile = document.querySelector(".movie_sp");
+
+    // 2nd.html（2ページ目）の読み込み時にセッションストレージをチェックし、動画を再生
+    document.addEventListener("DOMContentLoaded", function() {
+        if (sessionStorage.getItem("playVideo") === "true") {
+          
+            // メディアクエリ
+            const isMobile = window.matchMedia("(max-width: 825px)");
+            
+            // check if it's a mobile screen
+            if (isMobile.matches) {
+              videoMobile.load();
+              videoMobile.play();
+            } else {
+              videoDesktop.load();
+              videoDesktop.play();
+            }
+
+            // セッションストレージの項目を削除（削除しない）
+            // sessionStorage.removeItem("playVideo");
+        }
+    });
+
+
+
+    //TEXT
+    const movie = document.querySelector('.movie');
+    const wra3 = document.querySelector('.wrapper3');
+    const wra3_con = document.querySelector('.wra3_container');
+    const box = document.querySelector('.box');
+
+  // 動画再生終了後、wra3が出現、wra3コンテナが出現、ボックスが出現
+    movie.addEventListener( 'ended', () => {
+        wra3.classList.add('open');
+        wra3_con.classList.add('open');
+        box.classList.add('open');
+        // 動画が終了したらsessionStorageに値をセット
+        sessionStorage.setItem("playMusic", "true");
+      } )
+
+    wra3_con.addEventListener( 'click', function(){
+        window.location.href = "./3rd.html"
+    } ); 
+
+  </script>
+    <!-- <script src="index.js"></script> -->
+
+  </body>
+</html>
