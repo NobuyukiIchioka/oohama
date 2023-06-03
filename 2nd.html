@@ -78,7 +78,7 @@
     // 2nd.html（2ページ目）の読み込み時にセッションストレージをチェックし、動画を再生
     document.addEventListener("DOMContentLoaded", function() {
         if (sessionStorage.getItem("playVideo") === "true") {
-          
+
             // メディアクエリ
             const isMobile = window.matchMedia("(max-width: 825px)");
             
@@ -99,19 +99,21 @@
 
 
     //TEXT
-    const movie = document.querySelector('.movie');
+    // let end = document.querySelector('.movie');
     const wra3 = document.querySelector('.wrapper3');
     const wra3_con = document.querySelector('.wra3_container');
     const box = document.querySelector('.box');
 
-  // 動画再生終了後、wra3が出現、wra3コンテナが出現、ボックスが出現
-    movie.addEventListener( 'ended', () => {
+    // 動画再生終了後、wra3が出現、wra3コンテナが出現、ボックスが出現
+    videos.forEach(video => {
+      video.addEventListener( 'ended', () => {
         wra3.classList.add('open');
         wra3_con.classList.add('open');
         box.classList.add('open');
         // 動画が終了したらsessionStorageに値をセット
         sessionStorage.setItem("playMusic", "true");
-      } )
+      });
+    });
 
     wra3_con.addEventListener( 'click', function(){
         window.location.href = "./3rd.html"
