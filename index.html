@@ -15,19 +15,18 @@
       <!-- 1st -->
       <div class="wrapper1 body">
         <div class="title">
-          <a href="./2nd.html">
+          <a href="./1st-2.html">
             <p><img src="./img/bt1.png" alt="button" class="btn1"></p>
-            <p class="blinking"><img src="./img/caution.png" alt="" class="caution"></p>
-            <p class="blinking"><img src="./img/caution_sp.png" alt="" class="caution_sp"></p>
+            <p class="blinking"><img src="./img/caution.png" alt="注意喚起" class="caution"></p>
+            <p class="blinking"><img src="./img/caution_sp.png" alt="注意喚起" class="caution_sp"></p>
           </a>
         </div>
       </div>
 
     </main>
 
-    <!-- JavaScript操作 -->
     <script>
-       // index.html（1ページ目）でのクリックイベントを検知し、そのイベントが発生したことをセッションストレージに保存
+       // クリックイベントを検知し、そのイベントが発生したことをセッションストレージに保存
         document.querySelector(".title").addEventListener("click", function() {
             sessionStorage.setItem("playVideo", "true");
         });
