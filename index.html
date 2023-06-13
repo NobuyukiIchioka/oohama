@@ -28,7 +28,8 @@
     <script>
        // クリックイベントを検知し、そのイベントが発生したことをセッションストレージに保存
         document.querySelector(".title").addEventListener("click", function() {
-            sessionStorage.setItem("playVideo", "true");
+          sessionStorage.setItem("playVideo", "true");
+          alert(sessionStorage.getItem("playVideo"));  
         });
     </script>
     

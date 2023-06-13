@@ -21,7 +21,7 @@
       <!-- MOVIE -->
       <div class="wrapper2 body">
         <video src="./movie/opening_movie.mp4" class="movie"></video>
-        <video src="./movie/opening_movie_sp.mp4" class="movie_sp"></video>
+        <video src="./movie/opening_movie_sp.mp4" class="movie_sp" style="cursor: pointer"></video>
       </div>
 
       <!-- TEXT -->
@@ -77,19 +77,41 @@
 
     // 2ページ読み込み時にセッションストレージをチェックし、動画を再生
     document.addEventListener("DOMContentLoaded", function() {
+        alert(sessionStorage.getItem("playVideo"));
         if (sessionStorage.getItem("playVideo") === "true") {
 
             // メディアクエリ
             const isMobile = window.matchMedia("(max-width: 825px)");
             
             if (isMobile.matches) {
+              alert("video play");
+              alert("src:" + videoMobile.src);
               videoMobile.load();
-              videoMobile.play();
+              // videoMobile.play().catch((e) => {
+              //   alert("error:" + e);
+              // });
             } else {
-              videoDesktop.load();
+              alert("desktop play");
+              // videoDesktop.load();
               videoDesktop.play();
             }
 
+        }
+    });
+
+    document.querySelector(".wrapper2").addEventListener("touchend", function() {
+        // メディアクエリ
+        const isMobile = window.matchMedia("(max-width: 825px)");
+        alert("click: mobile");
+        if (isMobile.matches) {
+          videoMobile.load();
+          videoMobile.play().catch((e) => {
+            alert("error:" + e);
+          });
+        } else {
+          // alert("desktop play");
+          // videoDesktop.load();
+          // videoDesktop.play();
         }
     });
 
