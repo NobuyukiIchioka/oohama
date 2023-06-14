@@ -76,6 +76,7 @@ export default function FirstSub() {
 			</header>
 
 			<main>
+				{/* TODO translate */}
 				{movieEnded ? (
 					<div className="wrapper3">
 						<div className="wra3_container">
