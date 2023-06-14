@@ -1,15 +1,22 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import "./index.css"
-import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { Home } from "./Home"
+import { First, FirstSub, Second } from "./page"
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Home />
+		element: <First />
+	},
+	{
+		path: "/firstSub",
+		element: <FirstSub />
+	},
+	{
+		path: "/second",
+		element: <Second />
 	}
 ])
 
