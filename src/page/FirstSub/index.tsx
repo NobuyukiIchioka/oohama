@@ -5,9 +5,13 @@ import volumeMuteIcon from "../../img/volume-mute.svg"
 import volumeHighIcon from "../../img/volume-high.svg"
 import bt2 from "../../img/bt2.png"
 import { useNavigate } from "react-router"
+import Second from "../Second"
 
 export default function FirstSub() {
 	const navigate = useNavigate()
+
+	const [second, setSecond] = useState(false)
+
 	const [sliderVolume, setSliderVolume] = useState(0.5)
 
 	const initialVideoState = {
@@ -42,17 +46,24 @@ export default function FirstSub() {
 	}
 
 	const handlePressAnyBtn = () => {
-		navigate("/second")
+		// navigate("/second")
+		setSecond(true)
 	}
 
 	useEffect(() => {
 		const matchMedia = window.matchMedia("(max-width: 825px)")
+		setVideoState({
+			...videoState,
+			muted: false
+		})
 		matchMedia.matches
 			? openingMovieSpRef.current?.play()
 			: openingMovieRef.current?.play()
 	}, [])
 
-	return (
+	return second ? (
+		<Second />
+	) : (
 		<>
 			<header className="header">
 				<div className="controller">
@@ -78,9 +89,9 @@ export default function FirstSub() {
 			<main>
 				{/* TODO translate */}
 				{movieEnded ? (
-					<div className="wrapper3">
-						<div className="wra3_container">
-							<div className="box">
+					<div className="wrapper3 open">
+						<div className="wra3_container open">
+							<div className="box open">
 								<button type="button" onClick={handlePressAnyBtn}>
 									<img src={bt2} alt="button" className="btn2" />
 									<span className="font blinking">Press any button. </span>
