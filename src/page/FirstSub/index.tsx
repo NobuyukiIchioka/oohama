@@ -3,8 +3,11 @@ import openingMovieSp from "../../movie/opening_movie_sp.mp4"
 import openingMovie from "../../movie/opening_movie.mp4"
 import volumeMuteIcon from "../../img/volume-mute.svg"
 import volumeHighIcon from "../../img/volume-high.svg"
+import bt2 from "../../img/bt2.png"
+import { useNavigate } from "react-router"
 
 export default function FirstSub() {
+	const navigate = useNavigate()
 	const [sliderVolume, setSliderVolume] = useState(0.5)
 
 	const initialVideoState = {
@@ -15,6 +18,8 @@ export default function FirstSub() {
 	const [iconSrc, setIconSrc] = useState(
 		initialVideoState.muted ? volumeMuteIcon : volumeHighIcon
 	)
+
+	const [movieEnded, setMovieEnded] = useState(false)
 
 	const openingMovieRef = useRef<HTMLVideoElement>(null)
 	const openingMovieSpRef = useRef<HTMLVideoElement>(null)
@@ -34,6 +39,10 @@ export default function FirstSub() {
 			muted: !videoState.muted
 		})
 		setIconSrc(videoState.muted ? volumeMuteIcon : volumeHighIcon)
+	}
+
+	const handlePressAnyBtn = () => {
+		navigate("/second")
 	}
 
 	useEffect(() => {
@@ -75,23 +84,29 @@ export default function FirstSub() {
 						src={openingMovie}
 						className="movie"
 						ref={openingMovieRef}
+						onEnded={() => setMovieEnded(true)}
 					/>
 					<video
 						muted={videoState.muted}
 						src={openingMovieSp}
 						className="movie_sp"
 						ref={openingMovieSpRef}
+						onEnded={() => setMovieEnded(true)}
 					/>
 				</div>
 
-				<div className="wrapper3">
-					<div className="wra3_container">
-						<div className="box">
-							<img src="./img/bt2.png" alt="button" className="btn2" />
-							<span className="font blinking">Press any button. </span>
+				{movieEnded && (
+					<div className="wrapper3">
+						<div className="wra3_container">
+							<div className="box">
+								<button type="button" onClick={handlePressAnyBtn}>
+									<img src={bt2} alt="button" className="btn2" />
+									<span className="font blinking">Press any button. </span>
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
+				)}
 			</main>
 		</>
 	)
