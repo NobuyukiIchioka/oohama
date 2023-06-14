@@ -46,12 +46,10 @@ export default function FirstSub() {
 	}
 
 	useEffect(() => {
-		const isMobile = window.matchMedia("(max-width: 825px)")
-		if (isMobile) {
-			openingMovieSpRef.current?.play()
-			return
-		}
-		openingMovieRef.current?.play()
+		const matchMedia = window.matchMedia("(max-width: 825px)")
+		matchMedia.matches
+			? openingMovieSpRef.current?.play()
+			: openingMovieRef.current?.play()
 	}, [])
 
 	return (
@@ -78,24 +76,7 @@ export default function FirstSub() {
 			</header>
 
 			<main>
-				<div className="wrapper2 body">
-					<video
-						muted={videoState.muted}
-						src={openingMovie}
-						className="movie"
-						ref={openingMovieRef}
-						onEnded={() => setMovieEnded(true)}
-					/>
-					<video
-						muted={videoState.muted}
-						src={openingMovieSp}
-						className="movie_sp"
-						ref={openingMovieSpRef}
-						onEnded={() => setMovieEnded(true)}
-					/>
-				</div>
-
-				{movieEnded && (
+				{movieEnded ? (
 					<div className="wrapper3">
 						<div className="wra3_container">
 							<div className="box">
@@ -105,6 +86,23 @@ export default function FirstSub() {
 								</button>
 							</div>
 						</div>
+					</div>
+				) : (
+					<div className="wrapper2 body">
+						<video
+							muted={videoState.muted}
+							src={openingMovie}
+							className="movie"
+							ref={openingMovieRef}
+							onEnded={() => setMovieEnded(true)}
+						/>
+						<video
+							muted={videoState.muted}
+							src={openingMovieSp}
+							className="movie_sp"
+							ref={openingMovieSpRef}
+							onEnded={() => setMovieEnded(true)}
+						/>
 					</div>
 				)}
 			</main>
