@@ -80,7 +80,6 @@ export default function FirstSub() {
 						muted={videoState.muted}
 						src={openingMovieSp}
 						className="movie_sp"
-						style={{ cursor: "pointer" }}
 						ref={openingMovieSpRef}
 					/>
 				</div>
