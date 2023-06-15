@@ -11,10 +11,6 @@ const router = createBrowserRouter([
 		element: <First />
 	},
 	{
-		path: "/firstSub",
-		element: <FirstSub />
-	},
-	{
 		path: "/second",
 		element: <Second />
 	}
