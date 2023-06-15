@@ -4,30 +4,29 @@ import openingMovie from "../../movie/opening_movie.mp4"
 import volumeMuteIcon from "../../img/volume-mute.svg"
 import volumeHighIcon from "../../img/volume-high.svg"
 import bt2 from "../../img/bt2.png"
+import { useNavigate } from "react-router"
 import Second from "../Second"
 
 export default function FirstSub() {
+	const navigate = useNavigate()
+
 	const [second, setSecond] = useState(false)
+
 	const [sliderVolume, setSliderVolume] = useState(0.5)
 
 	const initialVideoState = {
-		muted: false,
+		muted: true,
 		volume: 0
 	}
 	const [videoState, setVideoState] = useState(initialVideoState)
 	const [iconSrc, setIconSrc] = useState(
 		initialVideoState.muted ? volumeMuteIcon : volumeHighIcon
 	)
+
 	const [movieEnded, setMovieEnded] = useState(false)
+
 	const openingMovieRef = useRef<HTMLVideoElement>(null)
 	const openingMovieSpRef = useRef<HTMLVideoElement>(null)
-
-	useEffect(() => {
-		const matchMedia = window.matchMedia("(max-width: 825px)")
-		matchMedia.matches
-			? openingMovieSpRef.current?.play()
-			: openingMovieRef.current?.play()
-	}, [])
 
 	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const volume = Number(e.target.value)
@@ -36,12 +35,6 @@ export default function FirstSub() {
 			...videoState,
 			volume
 		})
-		if (openingMovieRef.current) {
-			openingMovieRef.current.volume = volume
-		}
-		if (openingMovieSpRef.current) {
-			openingMovieSpRef.current.volume = volume
-		}
 	}
 
 	const handleMuteIconClick = () => {
@@ -56,6 +49,17 @@ export default function FirstSub() {
 		// navigate("/second")
 		setSecond(true)
 	}
+
+	useEffect(() => {
+		const matchMedia = window.matchMedia("(max-width: 825px)")
+		setVideoState({
+			...videoState,
+			muted: false
+		})
+		matchMedia.matches
+			? openingMovieSpRef.current?.play()
+			: openingMovieRef.current?.play()
+	}, [])
 
 	return second ? (
 		<Second />
