@@ -4,6 +4,7 @@ import playIcon from "../../img/play.png"
 import volumeHighIcon from "../../img/volume-high.png"
 import volumeMuteIcon from "../../img/volume-high.png"
 import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router"
 
 export default function Second() {
 	const eyesOnMeSoundRef = useRef<HTMLAudioElement>(null)
@@ -13,6 +14,8 @@ export default function Second() {
 
 	useEffect(() => {
 		eyesOnMeSoundRef.current?.play()
+		// navigate("/second", { replace: false })
+		window.history.pushState({ page: 1 }, "second", "/second")
 	}, [])
 
 	const toggleAudio = () => {
@@ -39,7 +42,6 @@ export default function Second() {
 		<>
 			<header className="header">
 				<div className="sound_controller">
-					{/* <audio loop src={eyesOnMeSound} id="music" /> */}
 					<audio
 						muted={muted}
 						loop
