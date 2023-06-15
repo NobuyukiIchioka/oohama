@@ -2,28 +2,12 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import "./index.css"
 import reportWebVitals from "./reportWebVitals"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { First, FirstSub, Second } from "./page"
-
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <First />
-	},
-	{
-		path: "/firstSub",
-		element: <FirstSub />
-	},
-	{
-		path: "/second",
-		element: <Second />
-	}
-])
+import { First } from "./page"
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<First />
 	</React.StrictMode>
 )
 

@@ -5,7 +5,6 @@ import caution_sp from "../../img/caution_sp.png"
 import "../../reset.css"
 import "../../responsive.css"
 import "../../style.css"
-import { Link } from "react-router-dom"
 import FirstSub from "../FirstSub"
 
 export default function First() {
@@ -19,7 +18,7 @@ export default function First() {
 				<main>
 					<div className="wrapper1 body">
 						<div className="title">
-							<Link onClick={() => setFirstSub(true)} to={""}>
+							<button type="button" onClick={() => setFirstSub(true)}>
 								<p>
 									<img src={bt1} alt="button" className="btn1" />
 								</p>
@@ -29,7 +28,7 @@ export default function First() {
 								<p className="blinking">
 									<img src={caution_sp} alt="注意喚起" className="caution_sp" />
 								</p>
-							</Link>
+							</button>
 						</div>
 					</div>
 				</main>
