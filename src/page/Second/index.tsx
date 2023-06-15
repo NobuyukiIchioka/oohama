@@ -2,20 +2,25 @@ import eyesOnMeSound from "../../music/eyes_on_me.mp3"
 import pauseIcon from "../../img/pause.png"
 import playIcon from "../../img/play.png"
 import volumeHighIcon from "../../img/volume-high.png"
-import volumeMuteIcon from "../../img/volume-high.png"
+import volumeMuteIcon from "../../img/volume-mute.png"
 import { useEffect, useRef, useState } from "react"
-import { useNavigate } from "react-router"
 
-export default function Second() {
+interface SecondProps {
+	soundAutoPlay?: boolean
+}
+
+export default function Second({ soundAutoPlay = false }: SecondProps) {
 	const eyesOnMeSoundRef = useRef<HTMLAudioElement>(null)
-	const [playIconBtn, setPlayIconBtn] = useState(pauseIcon)
+	const [playIconBtn, setPlayIconBtn] = useState(
+		soundAutoPlay ? pauseIcon : playIcon
+	)
 	const [volumeIconBtn, setVolumeIconBtn] = useState(volumeHighIcon)
 	const [muted, setMuted] = useState(false)
 
 	useEffect(() => {
-		eyesOnMeSoundRef.current?.play()
-		// navigate("/second", { replace: false })
-		window.history.pushState({ page: 1 }, "second", "/second")
+		if (soundAutoPlay) {
+			eyesOnMeSoundRef.current?.play()
+		}
 	}, [])
 
 	const toggleAudio = () => {
@@ -37,6 +42,12 @@ export default function Second() {
 
 		setMuted(true)
 		setVolumeIconBtn(volumeMuteIcon)
+	}
+	const iframeOnLoad = () => {
+		if (soundAutoPlay) {
+			// iframeの描画した後にhistoryをpushする。先にpushするとiframeが描画されない
+			window.history.pushState({ page: 1 }, "second", "/second")
+		}
 	}
 	return (
 		<>
@@ -63,6 +74,8 @@ export default function Second() {
 					<iframe
 						title="main"
 						src="https://www.oohama.xyz/cms/hfcontent/test5/"
+						loading="eager"
+						onLoad={iframeOnLoad}
 					/>
 				</div>
 			</main>

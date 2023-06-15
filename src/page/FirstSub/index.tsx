@@ -8,17 +8,14 @@ import { useNavigate } from "react-router"
 import Second from "../Second"
 
 export default function FirstSub() {
-	const navigate = useNavigate()
-
-	const [second, setSecond] = useState(false)
-
-	const [sliderVolume, setSliderVolume] = useState(0.5)
-
 	const initialVideoState = {
 		muted: true,
 		volume: 0
 	}
+
 	const [videoState, setVideoState] = useState(initialVideoState)
+	const [second, setSecond] = useState(false)
+	const [sliderVolume, setSliderVolume] = useState(0.5)
 	const [iconSrc, setIconSrc] = useState(
 		initialVideoState.muted ? volumeMuteIcon : volumeHighIcon
 	)
@@ -35,6 +32,12 @@ export default function FirstSub() {
 			...videoState,
 			volume
 		})
+		if (openingMovieRef.current) {
+			openingMovieRef.current.volume = volume
+		}
+		if (openingMovieSpRef.current) {
+			openingMovieSpRef.current.volume = volume
+		}
 	}
 
 	const handleMuteIconClick = () => {
@@ -46,7 +49,6 @@ export default function FirstSub() {
 	}
 
 	const handlePressAnyBtn = () => {
-		// navigate("/second")
 		setSecond(true)
 	}
 
@@ -62,7 +64,7 @@ export default function FirstSub() {
 	}, [])
 
 	return second ? (
-		<Second />
+		<Second soundAutoPlay />
 	) : (
 		<>
 			<header className="header">
@@ -87,7 +89,6 @@ export default function FirstSub() {
 			</header>
 
 			<main>
-				{/* TODO translate */}
 				{movieEnded ? (
 					<div className="wrapper3 open">
 						<div className="wra3_container open">
