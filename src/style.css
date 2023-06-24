@@ -1,16 +1,17 @@
 /* Webフォント読み込み */
 @font-face {
-	font-family: PixelMplus10-Regular;
-	src: url('PixelMplus/PixelMplus12-Bold.ttf') format("truetype");
+  font-family: PixelMplus10-Regular;
+  src: url('PixelMplus/PixelMplus12-Bold.ttf') format("truetype");
 }
-.font{
+
+.font {
   font-size: 45px;
   font-weight: bold;
   font-family: PixelMplus10-Regular;
 }
 
 /* header部分 */
-.header{
+.header {
   position: fixed;
   bottom: 15px;
   right: 29px;
@@ -19,38 +20,56 @@
 
 
 /* mainスタート */
-  body {
-    position: relative;
-  }
-  
-  main {
-    width: 100%;
-    height: 100vh;
+body {
+  position: relative;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+.body {
+  background-color: black;
+}
+
+/* 点滅 */
+.blinking {
+  -webkit-animation: blink 1.5s ease-in-out infinite alternate;
+  -moz-animation: blink 1.5s ease-in-out infinite alternate;
+  animation: blink 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
   }
 
-  .body{
-    background-color: black;
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+    opacity: 0;
   }
 
-   /* 点滅 */
-   .blinking{
-    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
-      -moz-animation:blink 1.5s ease-in-out infinite alternate;
-      animation:blink 3s ease-in-out infinite alternate;
+  100% {
+    opacity: 1;
   }
-  @-webkit-keyframes blink{
-      0% {opacity:0;}
-      100% {opacity:1;}
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
   }
-  @-moz-keyframes blink{
-      0% {opacity:0;}
-      100% {opacity:1;}
+
+  100% {
+    opacity: 1;
   }
-  @keyframes blink{
-      0% {opacity:0;}
-      100% {opacity:1;}
-  }
-  
+}
+
 /* indexーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .wrapper1 {
   height: 100%;
@@ -60,59 +79,60 @@
   align-items: center;
 }
 
-.title p{
+.title p {
   text-align: center;
 }
 
-.title > p:nth-child(1){
+.title>p:nth-child(1) {
   margin-bottom: 97px;
 }
 
-.btn1{
+.btn1 {
   width: 130px;
   height: 130px;
 }
 
-.caution{
+.caution {
   width: 440px;
   height: 24.2px;
 }
 
-.caution_sp{
+.caution_sp {
   display: none;
 }
 
- /* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 2ndーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 動画リモコン */
-.controller{
+.controller {
   position: fixed !important;
   right: 45px;
   bottom: 28px;
   z-index: 1000;
 }
 
-#volume{
+#volume {
   width: 74px;
 }
 
-#volume:hover{
+#volume:hover {
   width: 129px;
   transition: 0.8s;
 }
 
-#icon{
+#icon {
   width: 24px;
   height: 26px;
 }
 
-.btn_icon{
+.btn_icon {
   border-radius: 50%;
   border-width: 0.5px;
   padding: 4px 8px;
+  background-color: white;
 }
 
- /* MOVIE  */
- .wrapper2{
+/* MOVIE  */
+.wrapper2 {
   height: 100%;
   width: 100%;
   display: flex;
@@ -124,13 +144,13 @@
   z-index: 10;
 }
 
-.movie{
+.movie {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
 }
 
-.movie_sp{
+.movie_sp {
   display: none;
 }
 
@@ -139,7 +159,7 @@
 .wrapper3 {
   height: 100vh;
   width: 100%;
-  
+
   /* 位置調整 */
   position: absolute;
   top: 0;
@@ -149,7 +169,7 @@
   opacity: 0;
 }
 
-.wra3_container{
+.wra3_container {
   height: 100%;
   width: 100%;
   /* 位置調整 */
@@ -161,42 +181,43 @@
   display: none;
 }
 
-.box{
+.box {
   position: fixed;
   bottom: 6px;
   /* 非表示 */
   display: none;
 }
 
-.btn2{
+.btn2 {
   width: 85px;
   height: 85px;
 }
 
-.box > span{
+.box>span {
   font-size: 49px;
   border-bottom: solid 2px;
 }
 
 /* アニメーション */
-.wra3_container.open{
+.wra3_container.open {
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
-.box.open{
+.box.open {
   display: flex;
   align-items: center;
-}  
-
-.wrapper3.open{
-  opacity: 1;
-  animation-name:fadeInAnime;
-  animation-duration:3s;
-  animation-fill-mode:forwards;
 }
-@keyframes fadeInAnime{
+
+.wrapper3.open {
+  opacity: 1;
+  animation-name: fadeInAnime;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnime {
   from {
     opacity: 0;
   }
@@ -208,9 +229,9 @@
 
 
 
-  /* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 3rdーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 音楽リモコン */
-.sound_controller{
+.sound_controller {
   position: fixed !important;
   right: 45px;
   bottom: 28px;
@@ -221,25 +242,35 @@
 
 }
 
-#play{
+#play {
   width: 3rem;
 
   margin-right: 21px;
 }
 
-#icon2{
+#icon2 {
   width: 1.7rem;
 }
 
 
-  .wrapper4{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+.wrapper4 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-  .wrapper4 iframe {
-    height: 3350px;
-    width: 100%;
-  }
+.wrapper4 iframe {
+  height: 3350px;
+  width: 100%;
+}
+
+
+input[type="range"] {
+  appearance: auto;
+  cursor: default;
+  color: -internal-light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+  padding: initial;
+  border: initial;
+  margin: 2px;
+}
