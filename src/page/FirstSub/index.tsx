@@ -89,7 +89,7 @@ export default function FirstSub() {
 			</header>
 
 			<main>
-				{movieEnded ? (
+				{movieEnded && (
 					<div className="wrapper3 open">
 						<div className="wra3_container open">
 							<div className="box open">
@@ -100,24 +100,23 @@ export default function FirstSub() {
 							</div>
 						</div>
 					</div>
-				) : (
-					<div className="wrapper2 body">
-						<video
-							muted={videoState.muted}
-							src={openingMovie}
-							className="movie"
-							ref={openingMovieRef}
-							onEnded={() => setMovieEnded(true)}
-						/>
-						<video
-							muted={videoState.muted}
-							src={openingMovieSp}
-							className="movie_sp"
-							ref={openingMovieSpRef}
-							onEnded={() => setMovieEnded(true)}
-						/>
-					</div>
 				)}
+				<div className="wrapper2 body">
+					<video
+						muted={videoState.muted}
+						src={openingMovie}
+						className="movie"
+						ref={openingMovieRef}
+						onEnded={() => setMovieEnded(true)}
+					/>
+					<video
+						muted={videoState.muted}
+						src={openingMovieSp}
+						className="movie_sp"
+						ref={openingMovieSpRef}
+						onEnded={() => setMovieEnded(true)}
+					/>
+				</div>
 			</main>
 		</>
 	)
