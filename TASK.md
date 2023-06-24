@@ -5,3 +5,19 @@
 
 # task
 - css を tailwindCssに置き換え
+
+- reset.css削除
+ 使ってない。が
+
+https://oohama.xyz/
+https://oohama.xyz/old/oohama13
+
+
+
+- 動画停止
+　Press any botton にする。ロゴが出たままにする。
+- 最初の再生ボタンの位置がおかしい。
+- media クエリがうまくいってない。
+ Androidで最初の動画真っ黒。Chromeでも確認できた。
+ [済み]iPhoneの最初の再生ボタンの文字画像が出てこない。
+- ミュートボタンの背景が透明になっている
