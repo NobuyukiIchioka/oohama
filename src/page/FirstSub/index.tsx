@@ -93,7 +93,11 @@ export default function FirstSub() {
 					<div className="wrapper3 open">
 						<div className="wra3_container open">
 							<div className="box open">
-								<button type="button" onClick={handlePressAnyBtn}>
+								<button
+									type="button"
+									className="box-btn"
+									onClick={handlePressAnyBtn}
+								>
 									<img src={bt2} alt="button" className="btn2" />
 									<span className="font blinking">Press any button. </span>
 								</button>

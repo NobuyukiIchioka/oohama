@@ -210,6 +210,11 @@ main {
   align-items: center;
 }
 
+.box-btn {
+  display: flex;
+  align-items: center;
+}
+
 .wrapper3.open {
   opacity: 1;
   animation-name: fadeInAnime;
