@@ -29,3 +29,5 @@ https://oohama.xyz/old/oohama13
  →React書き換えによる影響でCSSの読み込み方が変わったため。rest.css適用後にスライダーはwhiteを指定するよう修正。ボタンはreset前のスタイルを適用。
 [済み]- Press Any Buttonと文字の縦位置が揃ってない。
 [済み]- Press Any Buttonとロゴの位置が重なっていた。調整。
+[済み]- Press Any Buttonのフォントサイズが大きい。
+ → button追加による影響で、font-sizeが大きくなっていた。修正。

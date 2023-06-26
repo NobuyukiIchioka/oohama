@@ -4,7 +4,6 @@ import openingMovie from "../../movie/opening_movie.mp4"
 import volumeMuteIcon from "../../img/volume-mute.svg"
 import volumeHighIcon from "../../img/volume-high.svg"
 import bt2 from "../../img/bt2.png"
-import { useNavigate } from "react-router"
 import Second from "../Second"
 
 export default function FirstSub() {
@@ -99,7 +98,9 @@ export default function FirstSub() {
 									onClick={handlePressAnyBtn}
 								>
 									<img src={bt2} alt="button" className="btn2" />
-									<span className="font blinking">Press any button. </span>
+									<span id="press-any-btn" className="font blinking">
+										Press any button.{" "}
+									</span>
 								</button>
 							</div>
 						</div>

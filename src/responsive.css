@@ -27,7 +27,7 @@
 
   .box {
     position: fixed;
-    bottom: 100px;
+    bottom: 175px;
   }
 
   .btn2 {
@@ -35,7 +35,7 @@
     height: 50px;
   }
 
-  .box>span {
+  #press-any-btn {
     font-size: 25px;
   }
 
