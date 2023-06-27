@@ -125,6 +125,7 @@ main {
 }
 
 .btn_icon {
+  border: 0.5px solid;
   border-radius: 50%;
   border-width: 0.5px;
   padding: 4px 8px;

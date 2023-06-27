@@ -4,6 +4,7 @@
 6/15-16 夜 3時間　調整
 6/25 0:00-1:00 作業時間 - 修正
 6/26 0:00-0:15 作業時間 - 修正
+6/27 0:00-0:15 作業時間 - 修正
 
 # task
 - css を tailwindCssに置き換え
@@ -30,4 +31,4 @@ https://oohama.xyz/old/oohama13
 [済み]- Press Any Buttonと文字の縦位置が揃ってない。
 [済み]- Press Any Buttonとロゴの位置が重なっていた。調整。
 [済み]- Press Any Buttonのフォントサイズが大きい。
- → button追加による影響で、font-sizeが大きくなっていた。修正。
+[済み]- 全体的にデザイン修正(muteボタンだけであった)
