@@ -194,7 +194,7 @@ main {
   height: 85px;
 }
 
-.box>span {
+#press-any-btn {
   font-size: 49px;
   border-bottom: solid 2px;
 }
