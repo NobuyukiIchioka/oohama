@@ -57,9 +57,15 @@ export default function FirstSub() {
 			...videoState,
 			muted: false
 		})
-		matchMedia.matches
-			? openingMovieSpRef.current?.play()
-			: openingMovieRef.current?.play()
+
+		if (matchMedia.matches) {
+			openingMovieSpRef.current?.play()
+			if (openingMovieSpRef.current) {
+				openingMovieSpRef.current.controls = false
+			}
+		} else {
+			openingMovieRef.current?.play()
+		}
 	}, [])
 
 	return second ? (
@@ -108,6 +114,8 @@ export default function FirstSub() {
 				)}
 				<div className="wrapper2 body">
 					<video
+						controls
+						playsInline
 						muted={videoState.muted}
 						src={openingMovie}
 						className="movie"
@@ -115,6 +123,8 @@ export default function FirstSub() {
 						onEnded={() => setMovieEnded(true)}
 					/>
 					<video
+						controls
+						playsInline
 						muted={videoState.muted}
 						src={openingMovieSp}
 						className="movie_sp"
