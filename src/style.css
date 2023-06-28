@@ -197,6 +197,8 @@ main {
 #press-any-btn {
   font-size: 49px;
   border-bottom: solid 2px;
+  margin-top: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 /* アニメーション */
@@ -213,7 +215,13 @@ main {
 
 .box-btn {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.box-btn-container {
+  display: flex;
+  vertical-align: bottom;
 }
 
 .wrapper3.open {

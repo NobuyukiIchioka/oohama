@@ -108,7 +108,7 @@ export default function FirstSub() {
 								>
 									<img src={bt2} alt="button" className="btn2" />
 									<span id="press-any-btn" className="font blinking">
-										Press any button.{" "}
+										Press any button.
 									</span>
 								</button>
 							</div>
