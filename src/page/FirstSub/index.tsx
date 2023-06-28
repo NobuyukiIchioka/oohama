@@ -65,6 +65,9 @@ export default function FirstSub() {
 			}
 		} else {
 			openingMovieRef.current?.play()
+			if (openingMovieRef.current) {
+				openingMovieRef.current.controls = false
+			}
 		}
 	}, [])
 
